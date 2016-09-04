@@ -4,7 +4,7 @@ html, body{
 	background: #fff;
 	color: #333;
 }
-#wrapper{
+#wrapper, .row, .col{
 	min-height: 100%;
 }
 .container, .col{
