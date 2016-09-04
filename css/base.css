@@ -21,7 +21,6 @@ html, body{
 	height: 200vh;
 }
 #stats{
-	position: fixed;
 	background: lime;
 	color: #fff;
 }
