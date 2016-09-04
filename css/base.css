@@ -15,11 +15,15 @@ html, body{
 	height: 100vh;
 }
 #bg{
-	overflow: scroll;
+	overflow-y: scroll;
 	height: 100vh;
 }
 #stats{
 	background: lime;
 	color: #fff;
 	height: 100vh;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
 }
