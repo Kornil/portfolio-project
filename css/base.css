@@ -19,7 +19,7 @@ html, body{
 	opacity: 0.8;
 	overflow-y: scroll;
 	height: 100vh;
-	background: url('https://static.pexels.com/photos/3256/road-landscape-mountains-nature-large.jpeg');
+	background: url('https://static.pexels.com/photos/9754/mountains-clouds-forest-fog-large.jpg');
 	background-size: cover;
 	filter: grayscale(100%); /* Current draft standard */
     -webkit-filter: grayscale(100%); /* New WebKit */
