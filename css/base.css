@@ -1,10 +1,10 @@
 @import url("https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css");
 
 ::selection {
-  background: #124369; /* WebKit/Blink Browsers */
+  background: #76a5b5; /* WebKit/Blink Browsers */
 }
 ::-moz-selection {
-  background: #124369; /* Gecko Browsers */
+  background: #76a5b5; /* Gecko Browsers */
 }
 html, body{
 	height: 100%;
