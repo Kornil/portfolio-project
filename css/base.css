@@ -13,8 +13,10 @@ html, body{
 	margin: 0;
 	width: 100%;
 	height: 100vh;
+	background: #000;
 }
 #bg{
+	opacity: 0.8;
 	overflow-y: scroll;
 	height: 100vh;
 	background: url('https://static.pexels.com/photos/3256/road-landscape-mountains-nature-large.jpeg');
