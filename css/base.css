@@ -7,3 +7,10 @@ html, body{
 #wrapper{
 	min-height: 100%;
 }
+.container{
+	margin: 0;
+}
+#stats{
+	background: lime;
+	color: #fff;
+}

@@ -9,10 +9,10 @@ var HelloMessage = React.createClass({
     	<Grid>
 		    <Row className="show-grid">
 		      <Col xs={12} md={8}>
-		      	<code>Hello {this.props.name}</code>
+		      	<p>Hello {this.props.name}</p>
 		      </Col>
-		      <Col xs={12} md={4}>
-		      	<code>green</code>
+		      <Col xs={12} md={4} id="stats">
+		      	<p>green</p>
 		      </Col>
 		    </Row>
 		  </Grid>)
