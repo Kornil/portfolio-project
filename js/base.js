@@ -3,8 +3,12 @@ var HelloMessage = React.createClass({
     return (
     	<Grid>
 		    <Row className="show-grid">
-		      <Col xs={12} md={8}>Hello {this.props.name}</Col>
-		      <Col xs={12} md={4}>Im green</Col>
+		      <Col xs={12} md={8}>
+		      	<code>Hello {this.props.name}</code>
+		      </Col>
+		      <Col xs={12} md={4}>
+		      	<code>green</code>
+		      </Col>
 		    </Row>
 		  </Grid>
         <div>
