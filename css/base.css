@@ -23,7 +23,10 @@ html, body{
 	color: #fff;
 	height: 100vh;
 }
-::-webkit-scrollbar {
+::-webkit-scrollbar{
     width: 0px;  /* remove scrollbar space */
     background: transparent;  /* optional: just make scrollbar invisible */
+}
+::-webkit-scrollbar-thumb{
+    background: #FF0000;
 }
