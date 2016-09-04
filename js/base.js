@@ -10,12 +10,7 @@ var HelloMessage = React.createClass({
 		      	<code>green</code>
 		      </Col>
 		    </Row>
-		  </Grid>
-        <div>
-    	    <div id="container">
-    	      Hello {this.props.name}
-    	    </div>
-        </div>)
+		  </Grid>)
   }
 });
 
