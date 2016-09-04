@@ -19,6 +19,7 @@ html, body{
 }
 #bg{
 	height: 200vh;
+	overflow: scroll;
 }
 #stats{
 	background: lime;
