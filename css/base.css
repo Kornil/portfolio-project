@@ -16,19 +16,19 @@ html, body{
 	background: #000;
 }
 #bg{
-	opacity: 0.8;
+	/*opacity: 0.8;*/
 	overflow-y: scroll;
 	height: 100vh;
 	background: url('https://static.pexels.com/photos/9754/mountains-clouds-forest-fog-large.jpg');
 	background-size: cover;
-	filter: grayscale(100%); /* Current draft standard */
-    -webkit-filter: grayscale(100%); /* New WebKit */
+	/*filter: grayscale(100%); 
+    -webkit-filter: grayscale(100%); 
     -moz-filter: grayscale(100%);
     -ms-filter: grayscale(100%); 
-    -o-filter: grayscale(100%); /* Not yet supported in Gecko, Opera or IE */ 
-    filter: url(resources.svg#desaturate); /* Gecko */
-    filter: gray; /* IE */
-    -webkit-filter: grayscale(1); /* Old WebKit */
+    -o-filter: grayscale(100%);  
+    filter: url(resources.svg#desaturate);
+    filter: gray;
+    -webkit-filter: grayscale(1);*/
 }
 #stats{
 	background: #f619ba;
