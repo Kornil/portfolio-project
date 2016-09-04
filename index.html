@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="JS-libs/bootstrap.min.js"></script>
+    <!-- React stuff & babel -->
+    <script src="JS-libs/react.min.js"></script>
+    <script src="JS-libs/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>    
+
+    <title>Basic Example with JSX</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css" />
+  </head>
+  <body>
+    <div id="container">
+
+      <script type="text/babel">
+      
+        var HelloMessage = React.createClass({
+          render: function() {
+            return (<div>
+                        <h1>Hello {this.props.name}</h1>
+                    </div>)
+          }
+        });
+
+        ReactDOM.render(
+          <HelloMessage name="Francesco" />,
+          document.getElementById('container')
+        );
+      </script>
+
+  </body>
+</html>
