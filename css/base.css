@@ -19,9 +19,11 @@ html, body{
 	/*opacity: 0.8;*/
 	overflow-y: scroll;
 	height: 100vh;
-	background: url('https://static.pexels.com/photos/9754/mountains-clouds-forest-fog-large.jpg');
+	background: url('https://static.pexels.com/photos/126591/pexels-photo-126591-large.jpeg');
 	background-size: cover;
-	/*filter: grayscale(100%); 
+	/*
+	https://www.pexels.com/photo/body-of-water-photo-126591/
+	filter: grayscale(100%); 
     -webkit-filter: grayscale(100%); 
     -moz-filter: grayscale(100%);
     -ms-filter: grayscale(100%); 
@@ -31,7 +33,7 @@ html, body{
     -webkit-filter: grayscale(1);*/
 }
 #stats{
-	background: #f619ba;
+	background: #3d799b;
 	color: #fff;
 	height: 100vh;
 }
