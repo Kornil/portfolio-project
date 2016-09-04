@@ -4,3 +4,7 @@ html, body{
 	background: #fff;
 	color: #333;
 }
+#container{
+	min-height: 100%;
+	padding:  50px;
+}
