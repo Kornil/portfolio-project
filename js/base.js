@@ -8,7 +8,7 @@ var HelloMessage = React.createClass({
     return (
     	<Grid>
 		    <Row className="show-grid">
-		      <Col xs={12} md={9}>
+		      <Col xs={12} md={9} id="bg">
 		      	<p>Hello {this.props.name}</p>
 		      </Col>
 		      <Col xs={12} md={3} id="stats">
