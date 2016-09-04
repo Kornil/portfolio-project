@@ -23,7 +23,13 @@ html, body{
 }
 #bg h1{
 	text-align: center;
-	padding-top: 20px;
+  padding-top: 100px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  font-family: helvetica;
+  font-size: 48px;
+  font-weight: bold;
 }
 #stats{
 	background: #3d799b;
@@ -31,9 +37,9 @@ html, body{
 	height: 100vh;
 }
 ::-webkit-scrollbar{
-    width: 0px;  /* remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible */
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
 }
 ::-webkit-scrollbar-thumb{
-    background: #FF0000;
+  background: #FF0000;
 }
