@@ -4,12 +4,13 @@ html, body{
 	background: #fff;
 	color: #333;
 }
-#wrapper, .container, .row{
+#wrapper{
 	min-height: 100%;
 }
-.container{
+.container, .col{
 	margin: 0;
 	width: 100%;
+	height: 100vh;
 }
 #stats{
 	background: lime;
