@@ -1,5 +1,11 @@
 @import url("https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css");
 
+::selection {
+  background: #124369; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #124369; /* Gecko Browsers */
+}
 html, body{
 	height: 100%;
 	margin:  0;
@@ -23,11 +29,11 @@ html, body{
 }
 #bg h1{
 	text-align: center;
-  padding-top: 100px;
+  margin-top: 100px;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 6px;
-  font-family: helvetica;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 48px;
   font-weight: bold;
 }
