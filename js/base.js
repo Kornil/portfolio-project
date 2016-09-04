@@ -1,12 +1,15 @@
 var HelloMessage = React.createClass({
   render: function() {
-    return (<div>
-      Hello {this.props.name}
-    </div>)
+    return 
+    <div>
+	    <div id="container">
+	      Hello {this.props.name}
+	    </div>
+    </div>
   }
 });
 
 ReactDOM.render(
   <HelloMessage name="Francesco" />,
-  document.getElementById('container')
+  document.getElementById('wrapper')
 );

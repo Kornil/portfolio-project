@@ -4,7 +4,6 @@ html, body{
 	background: #fff;
 	color: #333;
 }
-#container{
+#wrapper{
 	min-height: 100%;
-	padding:  50px;
 }
