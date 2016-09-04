@@ -17,6 +17,8 @@ html, body{
 #bg{
 	overflow-y: scroll;
 	height: 100vh;
+	background: url('https://static.pexels.com/photos/3256/road-landscape-mountains-nature-large.jpeg');
+	background-size: cover;
 }
 #stats{
 	background: lime;
