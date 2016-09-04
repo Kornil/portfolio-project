@@ -1,11 +1,11 @@
 var HelloMessage = React.createClass({
   render: function() {
-    return 
-    <div>
-	    <div id="container">
-	      Hello {this.props.name}
-	    </div>
-    </div>
+    return (
+        <div>
+    	    <div id="container">
+    	      Hello {this.props.name}
+    	    </div>
+        </div>)
   }
 });
 
