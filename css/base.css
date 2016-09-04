@@ -7,7 +7,7 @@ html, body{
 	color: #333;
 }
 #wrapper, .row, .col{
-	min-height: 100%;
+	min-height: 100vh;
 }
 .container, .col{
 	margin: 0;
