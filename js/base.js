@@ -12,7 +12,7 @@ var HelloMessage = React.createClass({
 		      	<h1>{this.props.name} Agnoletto</h1>
 		      </Col>
 		      <Col xs={12} md={3} id="stats">
-		      	<div id="circle">green</div>
+		      	<div id="circle"></div>
 		      	<h3>title</h3>
 		      	<p>{text}</p>
 		      </Col>
