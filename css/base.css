@@ -10,7 +10,8 @@ html, body{
 	height: 100%;
 	margin:  0;
 	background: #fff;
-	color: #333;
+	color: #333;	
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 #wrapper, .row{
 	min-height: 100%;
@@ -32,7 +33,6 @@ html, body{
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 6px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 48px;
   font-weight: bold;
 }
@@ -44,14 +44,14 @@ html, body{
 }
 #stats p{
 	margin-top: 50px;
-	padding: 0 20px;
+	padding: 0 25px;
 }
 #circle{
 	margin-top: 100px;
 	border: solid white 5px;
-	width: 100px;
-	height: 100px;
-	border-radius: 50px;
+	width: 125px;
+	height: 125px;
+	border-radius: 75px;
 	margin: 100px auto 0;
 }
 ::-webkit-scrollbar{
