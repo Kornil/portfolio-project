@@ -36,7 +36,7 @@ html, body{
   font-weight: bold;
 }
 #stats{
-	background: #3d799b;
+	background: rgba(61,121,155,0.8);
 	color: #fff;
 	height: 100vh;
 }
