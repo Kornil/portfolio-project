@@ -1,0 +1,49 @@
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css");
+
+::selection {
+  background: #76a5b5; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #76a5b5; /* Gecko Browsers */
+}
+html, body{
+	height: 100%;
+	margin:  0;
+	background: #fff;
+	color: #333;
+}
+#wrapper, .row{
+	min-height: 100%;
+}
+.container{
+	margin: 0;
+	width: 100%;
+	height: 100vh;
+	background: url('https://static.pexels.com/photos/126591/pexels-photo-126591-large.jpeg');
+	background-size: cover;
+}
+#bg{
+	overflow-y: scroll;
+	height: 100vh;}
+#bg h1{
+	text-align: center;
+  margin-top: 100px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 48px;
+  font-weight: bold;
+}
+#stats{
+	background: rgba(61,121,155,0.8);
+	color: #fff;
+	height: 100vh;
+}
+::-webkit-scrollbar{
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
+}
+::-webkit-scrollbar-thumb{
+  background: #FF0000;
+}
