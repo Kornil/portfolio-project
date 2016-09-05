@@ -13,7 +13,6 @@ var HelloMessage = React.createClass({
 		      </Col>
 		      <Col xs={12} md={3} id="stats">
 		      	<div id="circle">green</div>
-		      	<hr/>
 		      	<h2>title</h2>
 		      	<p>{text}</p>
 		      </Col>
