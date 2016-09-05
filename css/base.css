@@ -40,13 +40,18 @@ html, body{
 	background: rgba(61,121,155,0.8);
 	color: #fff;
 	height: 100vh;
+	text-align: center;
+}
+#stats p{
+	padding: 0 10px;
 }
 #circle{
 	margin-top: 100px;
 	border: solid white 5px;
-	width: 150px;
-	height: 150px;
-	border-radius: 100px;
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	margin: 0 auto;
 }
 ::-webkit-scrollbar{
   width: 0px;  /* remove scrollbar space */
