@@ -23,7 +23,7 @@ var FinalRender = React.createClass({
     return (
     	<Grid>
 		    <Row className="show-grid">
-		      <Col onClick={this.setState(test: this.state.test + 1)} xs={12} md={9} id="bg">
+		      <Col onClick={this.setState({test: this.state.test + 1})} xs={12} md={9} id="bg">
 		      	<h1>{this.props.name} Agnoletto</h1>
 		      </Col>
 		      <Stats test={this.state.test}/>
