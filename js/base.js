@@ -13,11 +13,12 @@ const statsText = [
 
 var Stats = React.createClass({
 	render: function(){
+		let number = this.props.test;
 		return (
 			<Col xs={12} md={3} id="stats">
       	<div id="circle"></div>
-      	<h3>{statsText[{this.props.test}].title}</h3>
-      	<p>{statsText[{this.props.test}].text}</p>
+      	<h3>{statsText[number].title}</h3>
+      	<p>{statsText[number].text}</p>
       </Col>
 			)
 	}
