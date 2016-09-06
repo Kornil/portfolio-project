@@ -25,15 +25,15 @@ var Stats = React.createClass({
 });
 
 var FinalRender = React.createClass({
+	getInitialState: function() {
+    return {test: 0};
+  },
 	handleClick: function() {
-		if(test===0){
+		if(this.state.test===0){
     	this.setState({test: 1});
     }else{
     	this.setState({test: 0});
     }
-  },
-	getInitialState: function() {
-    return {test: 0};
   },
   render: function() {
     return (
