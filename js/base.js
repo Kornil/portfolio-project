@@ -25,6 +25,13 @@ var Stats = React.createClass({
 });
 
 var FinalRender = React.createClass({
+	handleClick: function() {
+		if(test===0){
+    	this.setState({test: 1});
+    }else{
+    	this.setState({test: 0});
+    }
+  },
 	getInitialState: function() {
     return {test: 0};
   },
@@ -33,7 +40,7 @@ var FinalRender = React.createClass({
     	<Grid>
 		    <Row className="show-grid">
 		      <Col xs={12} md={9} id="bg">
-		      	<h1>Francesco Agnoletto</h1>
+		      	<h1 onClick={this.handleClick}>Francesco Agnoletto</h1>
 		      </Col>
 		      <Stats test={this.state.test}/>
 		    </Row>
