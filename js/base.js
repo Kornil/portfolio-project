@@ -56,7 +56,7 @@ var FinalRender = React.createClass({
     	this.setState({test: 0});
     }
   },
-  hoverEvent: function(i){
+  hoverEvent = (i) => {
   	this.setstate({test: i})
   },
   render: function() {
