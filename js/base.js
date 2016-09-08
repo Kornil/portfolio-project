@@ -67,7 +67,8 @@ var FinalRender = React.createClass({
 		      	<h1 onClick={this.handleClick}>Francesco Agnoletto</h1>
 		      	<div id="icons">
 		      		{statsText.map(function(object, i){
-				        return <i onMouseOver={()=>this.hoverEvent(i)} className={object.icon} key={i} height="45px" />;
+		      			let Hover = this.hoverEvent(i);
+				        return <i onMouseOver={Hover} className={object.icon} key={i} height="45px" />;
 				    	})}
 		      	</div>
 		      </Col>
