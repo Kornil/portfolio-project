@@ -6,7 +6,7 @@ const statsText = [
 {
 	title: "HTML5",
 	text: "HyperText Markup Language is the standard markup language for creating web pages and web applications. With Cascading Style Sheets (CSS), and JavaScript, it forms a triad of cornerstone technologies for the World Wide Web. HTML elements are the building blocks of HTML pages. It provides a means to create structured documents by denoting structural semantics for text such as headings, paragraphs, lists, links, quotes and other items. HTML can embed programs written in a scripting language such as JavaScript which affect the behavior and content of web pages. Inclusion of CSS defines the look and layout of content.",
-	icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/240px-HTML5_logo_and_wordmark.svg.png"
+	icon: "devicon-html5-plain"
 },{
 	title: "CSS3",
 	text: "Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in a markup language. Along with HTML and JavaScript, CSS is a cornerstone technology used by most websites to create visually engaging webpages, user interfaces for web applications, and user interfaces for many mobile applications. Changes to the graphic design of a document (or hundreds of documents) can be applied quickly and easily, by editing a few lines in the CSS file they use, rather than by changing markup in the documents.",
@@ -61,7 +61,7 @@ var FinalRender = React.createClass({
 		      	<h1 onClick={this.handleClick}>Francesco Agnoletto</h1>
 		      	<div id="icons">
 		      		{statsText.map(function(object, i){
-				        return <img src={object.icon} key={i} height="45px" />;
+				        return <i className={object.icon} key={i} height="45px" />;
 				    	})}
 		      	</div>
 		      </Col>
