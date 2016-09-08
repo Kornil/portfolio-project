@@ -59,6 +59,9 @@ var FinalRender = React.createClass({
 		    <Row className="show-grid">
 		      <Col xs={12} md={9} id="bg">
 		      	<h1 onClick={this.handleClick}>Francesco Agnoletto</h1>
+		      	<div id="icons">
+		      		<img scr="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/240px-HTML5_logo_and_wordmark.svg.png" width="50px" height="50px" />
+		      	</div>
 		      </Col>
 		      <Stats test={this.state.test}/>
 		    </Row>
