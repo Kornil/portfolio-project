@@ -20,7 +20,7 @@ const statsText = [
 	text: "Bootstrap is a free and open-source front-end web framework for designing websites and web applications developed by Mark Otto and Jacob Thornton at Twitter. It contains HTML- and CSS-based design templates for typography, forms, buttons, navigation and other interface components, as well as optional JavaScript extensions. Unlike many web frameworks, it concerns itself with front-end development only. Bootstrap is the second most-starred project on GitHub, with almost 100,000 stars and almost 45,000 forks.",
 	icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Boostrap_logo.svg/239px-Boostrap_logo.svg.png"
 },{
-	title: "React",
+	title: "React.js",
 	text: "React is an open-source JavaScript library providing a view for data rendered as HTML. React views are typically rendered using components that contain additional components specified as custom HTML tags. It is maintained by Facebook, Instagram and a community of individual developers and corporations. According to JavaScript analytics service Libscore, React is currently being used on the websites of Netflix, Imgur, Bleacher Report, Feedly, Airbnb, SeatGeek, HelloSign, and others. As of March 2016, React and React Native are Facebook's top two open-source projects by number of stars on GitHub, and React is the 6th most starred project of all time on GitHub.",
 	icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/React.js_logo.svg/240px-React.js_logo.svg.png"
 },{

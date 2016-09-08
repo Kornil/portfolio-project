@@ -45,14 +45,14 @@ html, body{
 #stats p{
 	margin-top: 50px;
 	padding: 0 25px;
+	font-size: 13px;
 }
 #circle{
-	margin-top: 100px;
 	border: solid white 5px;
 	width: 125px;
 	height: 125px;
 	border-radius: 75px;
-	margin: 100px auto 0;
+	margin: 50px auto 0;
 }
 ::-webkit-scrollbar{
   width: 0px;  /* remove scrollbar space */
