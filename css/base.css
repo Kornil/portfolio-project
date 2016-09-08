@@ -29,12 +29,15 @@ html, body{
 }
 #bg h1{
 	text-align: center;
-  margin-top: 100px;
+  margin-top: 15vh;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 6px;
   font-size: 48px;
   font-weight: bold;
+}
+#icons{
+	margin-top: 50vh;
 }
 #stats{
 	background: rgba(61,121,155,0.8);
