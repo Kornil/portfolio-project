@@ -38,7 +38,10 @@ html, body{
 }
 #icons{
 	margin-top: 60vh;
-	margin-left: 5rem;
+	margin-left: 10rem;
+}
+#icons img{
+	margin-left: 1rem;
 }
 #stats{
 	background: rgba(61,121,155,0.8);
