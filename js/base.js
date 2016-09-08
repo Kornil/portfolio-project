@@ -60,7 +60,7 @@ var FinalRender = React.createClass({
 		      <Col xs={12} md={9} id="bg">
 		      	<h1 onClick={this.handleClick}>Francesco Agnoletto</h1>
 		      	<div id="icons">
-		      		<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/240px-HTML5_logo_and_wordmark.svg.png" width="50px" height="50px" />
+		      		<img src={statsText[1].icon} width="50px" height="50px" /> {/* HTML5 */}
 		      	</div>
 		      </Col>
 		      <Stats test={this.state.test}/>
