@@ -37,7 +37,8 @@ html, body{
   font-weight: bold;
 }
 #icons{
-	margin-top: 50vh;
+	margin-top: 60vh;
+	margin-left: 5rem;
 }
 #stats{
 	background: rgba(61,121,155,0.8);

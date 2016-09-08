@@ -61,6 +61,9 @@ var FinalRender = React.createClass({
 		      	<h1 onClick={this.handleClick}>Francesco Agnoletto</h1>
 		      	<div id="icons">
 		      		<img src={statsText[1].icon} width="50px" height="50px" /> {/* HTML5 */}
+		      		{statsText.map(function(object, i){
+				        return <img src={object.icon} key={i} width="50px" height="50px" />;
+				    	})}
 		      	</div>
 		      </Col>
 		      <Stats test={this.state.test}/>
