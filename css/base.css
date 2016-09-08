@@ -41,8 +41,10 @@ html, body{
 	margin-top: 60vh;
 	margin-left: 10rem;
 }
-#icons img{
+#icons i{
 	margin-left: 1rem;
+	font-size: 4rem;
+	color: #fff;
 }
 #stats{
 	background: rgba(61,121,155,0.8);
