@@ -56,9 +56,6 @@ var FinalRender = React.createClass({
     	this.setState({test: 0});
     }
   },
-  hoverEvent: () => {
-  	this.setstate({test: 3})
-  },
   render: function() {
     return (
     	<Grid>
@@ -67,7 +64,7 @@ var FinalRender = React.createClass({
 		      	<h1 onClick={this.handleClick}>Francesco Agnoletto</h1>
 		      	<div id="icons">
 		      		{statsText.map(function(object, i){
-				        return <i onMouseOver={this.hoverEvent} className={object.icon} key={i} height="45px" />;
+				        return <i className={object.icon} key={i} height="45px" />;
 				    	})}
 		      	</div>
 		      </Col>
