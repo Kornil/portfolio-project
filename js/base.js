@@ -3,6 +3,10 @@ var Row = ReactBootstrap.Row;
 var Col = ReactBootstrap.Col;
 const statsText = [
 {
+	title: "About me:",
+	text: "Francesco Agnoletto, self-taught Front-end developer from Italy. I work with HTML, CSS and JavaScript to make beautiful, optimized and search engine friendly websites. You can find my latest works on the left.",
+	image: ""
+},{
 	title: "HTML5",
 	text: "HyperText Markup Language is the standard markup language for creating web pages and web applications. With Cascading Style Sheets (CSS), and JavaScript, it forms a triad of cornerstone technologies for the World Wide Web. HTML elements are the building blocks of HTML pages. It provides a means to create structured documents by denoting structural semantics for text such as headings, paragraphs, lists, links, quotes and other items. HTML can embed programs written in a scripting language such as JavaScript which affect the behavior and content of web pages. Inclusion of CSS defines the look and layout of content.",
 	icon: "devicon-html5-plain"
@@ -60,7 +64,7 @@ var FinalRender = React.createClass({
 		      	<h1>Francesco Agnoletto</h1>
 		      	<div id="icons">
 		      		{statsText.map(function(object, i){
-				        return <i onMouseOver={this.handleHover.bind(this, i)} className={object.icon} key={i} height="45px" />;
+				        return <i onMouseEnter={this.handleHover.bind(this, i)} onMouseLeave={this.handleHover(this, 0)} className={object.icon} key={i} height="45px" />;
 				    	}.bind(this))}
 		      	</div>
 		      </Col>
