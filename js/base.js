@@ -71,7 +71,7 @@ var FinalRender = React.createClass({
 		      	<h1>Francesco Agnoletto</h1>
 		      	<div id="icons">
 		      		{statsText.map((object, i)=>{
-				        <i onMouseOver={this.handleHover.bind(this, i)} onMouseOut={this.handleHover.bind(this, 0)}
+				        <i onMouseOver={this.handleHover(i)} onMouseOut={this.handleHover(0)}
 				        className={object.icon} key={i} height="45px" />;
 				    	})}
 		      	</div>
