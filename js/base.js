@@ -42,7 +42,7 @@ var Stats = React.createClass({
 		let n = this.props.test;
 		return (
 			<Col xs={12} md={3} id="stats">
-      	<div id="circle">{statsText[n].image}</div>
+      	<div id="circle">{$("#stats").html(statsText[n].image)}</div>
       	<h3>{statsText[n].title}</h3>
       	<p>{statsText[n].text}</p>
       </Col>
