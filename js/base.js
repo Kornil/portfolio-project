@@ -50,7 +50,7 @@ var FinalRender = React.createClass({
     return {test: 0};
   },
 	handleClick: function(i) {
-    	this.setState({test: i});
+    	this.setState({test: 0});
   },
   render: function() {
     return (
