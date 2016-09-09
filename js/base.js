@@ -61,7 +61,7 @@ var FinalRender = React.createClass({
 		      	<div id="icons">
 		      		{statsText.map(function(object, i){
 				        return <i onClick={this.handleClick.bind(this, i)} className={object.icon} key={i} height="45px" />;
-				    	})}
+				    	}.bind(this))}
 		      	</div>
 		      </Col>
 		      <Stats test={this.state.test}/>
