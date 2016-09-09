@@ -49,12 +49,8 @@ var FinalRender = React.createClass({
 	getInitialState: function() {
     return {test: 0};
   },
-	handleClick: function() {
-		if(this.state.test===0){
-    	this.setState({test: 1});
-    }else{
-    	this.setState({test: 0});
-    }
+	handleClick: function(i) {
+    	this.setState({test: i});
   },
   render: function() {
     return (
@@ -64,7 +60,7 @@ var FinalRender = React.createClass({
 		      	<h1 onClick={this.handleClick}>Francesco Agnoletto</h1>
 		      	<div id="icons">
 		      		{statsText.map(function(object, i){
-				        return <i className={object.icon} key={i} height="45px" />;
+				        return <i onClick={handleClick.bind(this, i)} className={object.icon} key={i} height="45px" />;
 				    	})}
 		      	</div>
 		      </Col>
