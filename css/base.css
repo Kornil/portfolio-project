@@ -42,7 +42,8 @@ html, body{
 	margin-left: 10rem;
 }
 #icons i{
-	padding-left: 1rem;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
 	font-size: 3rem;
 	color: #fff;
 }
