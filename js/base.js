@@ -49,7 +49,7 @@ var FinalRender = React.createClass({
 	getInitialState: function() {
     return {test: 0};
   },
-	handleClick: function(i) {
+	handleHover: function(i) {
     	this.setState({test: i});
   },
   render: function() {
@@ -57,10 +57,10 @@ var FinalRender = React.createClass({
     	<Grid>
 		    <Row className="show-grid">
 		      <Col xs={12} md={9} id="bg">
-		      	<h1 onClick={this.handleClick}>Francesco Agnoletto</h1>
+		      	<h1>Francesco Agnoletto</h1>
 		      	<div id="icons">
 		      		{statsText.map(function(object, i){
-				        return <i onMouseOver={this.handleClick.bind(this, i)} className={object.icon} key={i} height="45px" />;
+				        return <i onMouseOver={this.handleHover.bind(this, i)} className={object.icon} key={i} height="45px" />;
 				    	}.bind(this))}
 		      	</div>
 		      </Col>
