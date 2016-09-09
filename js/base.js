@@ -44,7 +44,7 @@ const statsText = [
 }];
 
 var Stats = React.createClass({
-	render: function(){
+	render (){
 		let n = this.props.test;
 		return (
 			<Col xs={12} md={3} id="stats">
@@ -57,13 +57,13 @@ var Stats = React.createClass({
 });
 
 var FinalRender = React.createClass({
-	getInitialState: function() {
+	getInitialState () {
     return {test: 0};
   },
-	handleHover: function(i) {
+	handleHover (i) {
     	this.setState({test: i});
   },
-  render: function() {
+  render () {
     return (
     	<Grid>
 		    <Row className="show-grid">
