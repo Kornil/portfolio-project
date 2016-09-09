@@ -3,7 +3,7 @@ var Row = ReactBootstrap.Row;
 var Col = ReactBootstrap.Col;
 const statsText = [
 {
-	title: "About me:",
+	title: "About me",
 	text: "Francesco Agnoletto, self-taught Front-end developer from Italy. I work with HTML, CSS and JavaScript to make beautiful, optimized and search engine friendly websites. You can find my latest works on the left.",
 	image: ""
 },{
@@ -64,7 +64,7 @@ var FinalRender = React.createClass({
 		      	<h1>Francesco Agnoletto</h1>
 		      	<div id="icons">
 		      		{statsText.map(function(object, i){
-				        return <i onMouseEnter={this.handleHover.bind(this, i)} onMouseLeave={this.handleHover(this, 0)} className={object.icon} key={i} height="45px" />;
+				        return <i onMouseOver={this.handleHover.bind(this, i)} onMouseOut={this.handleHover.bind(this, 0)} className={object.icon} key={i} height="45px" />;
 				    	}.bind(this))}
 		      	</div>
 		      </Col>
