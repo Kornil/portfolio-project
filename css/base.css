@@ -58,12 +58,14 @@ html, body{
 	padding: 0 25px;
 	font-size: 13px;
 }
-#circle{
-	border: solid white 5px;
+#imageDiv{
 	width: 125px;
 	height: 125px;
-	border-radius: 75px;
 	margin: 50px auto 0;
+}
+#circle{
+	border-radius: 75px;
+	border: solid white 5px;	
 }
 ::-webkit-scrollbar{
   width: 0px;  /* remove scrollbar space */
