@@ -70,9 +70,10 @@ var FinalRender = React.createClass({
 		      <Col xs={12} md={9} id="bg">
 		      	<h1>Francesco Agnoletto</h1>
 		      	<div id="icons">
-		      		{statsText.map(function(object, i){
-				        return <i onMouseOver={this.handleHover.bind(this, i)} onMouseOut={this.handleHover.bind(this, 0)} className={object.icon} key={i} height="45px" />;
-				    	}.bind(this))}
+		      		{statsText.map((object, i)=>{
+				        <i onMouseOver={this.handleHover.bind(this, i)} onMouseOut={this.handleHover.bind(this, 0)}
+				        className={object.icon} key={i} height="45px" />;
+				    	})}
 		      	</div>
 		      </Col>
 		      <Stats test={this.state.test}/>
