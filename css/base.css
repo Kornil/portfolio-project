@@ -42,7 +42,7 @@ html, body{
 	margin-left: 10rem;
 }
 #icons i{
-	margin-left: 1rem;
+	padding-left: 1rem;
 	font-size: 3rem;
 	color: #fff;
 }
