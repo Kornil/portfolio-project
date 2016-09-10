@@ -49,7 +49,6 @@ var Stats = React.createClass({
 		return (
 			<Col xs={12} md={3} id="stats">
       	<div id="imageDiv"><span dangerouslySetInnerHTML={{__html: statsText[n].image}} /></div>
-      	<h3>{()=>n===0 ? statsText[n].title : null}</h3>
       	<p>{statsText[n].text}</p>
       </Col>
 			)
@@ -70,9 +69,9 @@ var FinalRender = React.createClass({
 		      <Col xs={12} md={9} id="bg">
 		      	<h1>Francesco Agnoletto</h1>
 		      	<div id="links">
-		      		<h4>Jobs</h4>
-		      		<h4>Games</h4>
-		      		<h4>Projects</h4>
+		      		<h3>JOBS<br/>
+		      		GAMES<br/>
+		      		PROJECTS</h3>
 		      	</div>
 		      	<div id="icons">
 		      		{statsText.map(function(object, i){

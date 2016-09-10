@@ -38,12 +38,12 @@ html, body{
 }
 #links{
 	position: absolute;
-	top: 30vh;
-	left: 10rem;
+	top: 40vh;
+	left: 10%;
 }
 #icons{
 	position: absolute;
-	top: 60vh;
+	top: 85vh;
 	left: 10rem;
 }
 #icons i{
