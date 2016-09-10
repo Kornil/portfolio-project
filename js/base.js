@@ -69,9 +69,9 @@ var FinalRender = React.createClass({
 		      <Col xs={12} md={9} id="bg">
 		      	<h1>Francesco Agnoletto</h1>
 		      	<div id="links">
-		      		<h3>JOBS<br/>
-		      		GAMES<br/>
-		      		PROJECTS</h3>
+		      		<h3>JOBS</h3>
+		      		<h3>GAMES</h3>
+		      		<h3>PROJECTS</h3>
 		      	</div>
 		      	<div id="icons">
 		      		{statsText.map(function(object, i){
