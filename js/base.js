@@ -69,6 +69,11 @@ var FinalRender = React.createClass({
 		    <Row className="show-grid">
 		      <Col xs={12} md={9} id="bg">
 		      	<h1>Francesco Agnoletto</h1>
+		      	<div id="links">
+		      		<h4>Jobs</h4>
+		      		<h4>Games</h4>
+		      		<h4>Projects</h4>
+		      	</div>
 		      	<div id="icons">
 		      		{statsText.map(function(object, i){
 				        return <i onMouseOver={this.handleHover.bind(this, i)} onMouseOut={this.handleHover.bind(this, 0)} className={object.icon} key={i} height="45px" />;
