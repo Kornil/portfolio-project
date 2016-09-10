@@ -44,13 +44,14 @@ html, body{
 #links h3{
 	letter-spacing: 3px;
   font-weight: lighter;
+  margin-top: 10px;
 }
 button{
   background:none;
   border:none;
 }
 button:hover, button:focus{
-  background:rgba(0,0,0,0.4);
+  background:rgba((118,165,181,0.4);
   outline:none;
 }
 #icons{
