@@ -11,7 +11,7 @@ html, body{
 	height: 100%;
 	margin:  0;
 	background: #fff;
-	color: #333;	
+	color: #fff;	
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 #wrapper, .row{
@@ -31,25 +31,28 @@ html, body{
 #bg h1{
 	text-align: center;
   margin-top: 15vh;
-  color: #fff;
   text-transform: uppercase;
   letter-spacing: 6px;
   font-size: 48px;
   font-weight: bold;
 }
+#links{
+	position: absolute;
+	top: 30vh;
+	left: 10rem;
+}
 #icons{
-	margin-top: 60vh;
-	margin-left: 10rem;
+	position: absolute;
+	top: 60vh;
+	left: 10rem;
 }
 #icons i{
 	padding-left: 0.5rem;
 	padding-right: 0.5rem;
 	font-size: 3rem;
-	color: #fff;
 }
 #stats{
 	background: rgba(61,121,155,0.8);
-	color: #fff;
 	height: 100vh;
 	text-align: center;
 }
