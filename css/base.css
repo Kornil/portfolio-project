@@ -45,11 +45,11 @@ html, body{
 	letter-spacing: 3px;
   font-weight: lighter;
 }
-.btn{
+button{
   background:none;
   border:none;
 }
-.btn:hover, .btn:focus{
+button:hover, button:focus{
   background:rgba(0,0,0,0.4);
   outline:none;
 }

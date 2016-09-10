@@ -1,7 +1,7 @@
 var Grid = ReactBootstrap.Grid;
 var Row = ReactBootstrap.Row;
 var Col = ReactBootstrap.Col;
-var Button = ReactBootstrap.Button;
+//var Button = ReactBootstrap.Button;
 const statsText = [
 {
 	title: "About me",
@@ -70,9 +70,9 @@ var FinalRender = React.createClass({
 		      <Col xs={12} md={9} id="bg">
 		      	<h1>Francesco Agnoletto</h1>
 		      	<div id="links">
-		      		<Button><h3>JOBS</h3></Button>
-		      		<Button><h3>GAMES</h3></Button>
-		      		<Button><h3>PROJECTS</h3></Button>
+		      		<button><h3>JOBS</h3></button>
+		      		<button><h3>GAMES</h3></button>
+		      		<button><h3>PROJECTS</h3></button>
 		      	</div>
 		      	<div id="icons">
 		      		{statsText.map(function(object, i){
