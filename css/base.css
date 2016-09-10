@@ -41,6 +41,18 @@ html, body{
 	top: 40vh;
 	left: 10%;
 }
+#links h3{
+	letter-spacing: 3px;
+  font-weight: lighter;
+}
+button{
+  background:none;
+  border:none;
+}
+button:hover, button:focus{
+  background:rgba(0,0,0,0.4);
+  outline:none;
+}
 #icons{
 	position: absolute;
 	top: 85vh;
