@@ -64,6 +64,9 @@ button:hover, button:focus{
 	padding-right: 0.5rem;
 	font-size: 3rem;
 }
+#icons i:hover, #icons i:focus{
+	background:rgba(118,165,181,0.4);
+}
 #stats{
 	background: rgba(61,121,155,0.8);
 	height: 100vh;
