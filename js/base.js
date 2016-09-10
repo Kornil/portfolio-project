@@ -4,7 +4,7 @@ var Col = ReactBootstrap.Col;
 //var Button = ReactBootstrap.Button;
 const statsText = [
 {
-	text: '<img id="circle" width="100%" height="100%" src="https://github.com/kornil.png" /><h3>About me</h3>Francesco Agnoletto, self-taught Front-end developer from Italy. I work with HTML, CSS and JavaScript to make beautiful, optimized and search engine friendly websites. You can find my latest works on the left.',
+	text: '<div id="circle"><img id="circle" width="100%" height="100%" src="https://github.com/kornil.png" /></div><h3>About me</h3>Francesco Agnoletto, self-taught Front-end developer from Italy. I work with HTML, CSS and JavaScript to make beautiful, optimized and search engine friendly websites. You can find my latest works on the left.',
 	test: ""
 },{
 	title: "HTML5",
