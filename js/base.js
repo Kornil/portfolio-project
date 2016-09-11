@@ -36,12 +36,13 @@ const statsText = [
 
 var Stats = React.createClass({
 	componentDidUpdate () {
+		function getPos(e){
+  		let y=e.clientY;
+  		return y;
+		});
 		$(".middle button").hover(function(){
-			let mouseY=0;
-			$(document).mousemove(function(e){
-				mouseY = e.pageY;
-			});
-			console.log(mouseY)
+			y = getPos(event);
+			console.log(y)
 			let h = $("#stats").attr("height")			
 			$("#infoPanel").css("top","'"+mouseY-(h/10)+"px'")
 			$("#infoPanel").show();
