@@ -37,7 +37,10 @@ const statsText = [
 var Stats = React.createClass({
 	componentDidUpdate () {
 		$(".middle button").hover(function(){
+			$(document).mousemove(function(e){
+			});
 			$("#infoPanel").show();
+			$("#infoPanel").css("top",mouseX-10vh)
 		},function(){
 			$("#infoPanel").hide();
 		})
