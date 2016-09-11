@@ -41,9 +41,9 @@ var Stats = React.createClass({
   		return y;
 		};
 		$(".middle button").hover(function(){
-			let y = getPos(event);
-			let h = $("#stats").height();
-			$("#infoPanel").css("top", y-(h/10)+"px")
+			let y = getPos(event),
+				h = $("#infoPanel").height();
+			$("#infoPanel").css("top", y-(h/2)+"px")
 			$("#infoPanel").show();
 		},function(){
 			$("#infoPanel").hide();
