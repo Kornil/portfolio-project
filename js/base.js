@@ -41,6 +41,7 @@ var Stats = React.createClass({
 			$(document).mousemove(function(e){
 				mouseY = e.pageY;
 			});
+			console.log(mouseY)
 			let h = $("#stats").attr("height")			
 			$("#infoPanel").css("top","'"+mouseY-(h/10)+"px'")
 			$("#infoPanel").show();
