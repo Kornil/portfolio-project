@@ -86,6 +86,7 @@ button:hover, button:focus{
 	min-height: 10vh;
 	position: absolute;
 	left: 50vw;
+	top: 0;
 	background: rgba(61,121,155,0.8);
 }
 .middle{
