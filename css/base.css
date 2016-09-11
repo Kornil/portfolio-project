@@ -35,6 +35,7 @@ html, body{
   letter-spacing: 6px;
   font-size: 48px;
   font-weight: bold;
+  cursor: default;
 }
 #links{
 	position: absolute;
@@ -83,7 +84,7 @@ button:hover, button:focus{
 }
 #infoPanel{
 	width: 25vw;
-	min-height: 10vh;
+	min-height: 20vh;
 	position: absolute;
 	left: -25vw;
 	top: 0;

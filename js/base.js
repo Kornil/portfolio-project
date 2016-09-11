@@ -58,7 +58,7 @@ var FinalRender = React.createClass({
     	<Grid>
 		    <Row className="show-grid">
 		      <Col xs={12} md={9} id="bg">
-		      	<h1>Francesco Agnoletto</h1>
+		      	<h1 onMouseOver={this.handleHover.bind(this, 0)}>Francesco Agnoletto</h1>
 		      	<div id="links">
 		      		<button onMouseOver={this.handleHover.bind(this, 1)}><h3>JOBS</h3></button><br />
 		      		<button><h3>GAMES</h3></button><br />
