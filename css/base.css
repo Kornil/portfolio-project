@@ -59,7 +59,7 @@ button:hover, button:focus{
 	top: 85vh;
 	left: 10rem;
 }
-#icons i{
+#icons i[class^="devicon-"]{
 	padding-left: 0.5rem;
 	padding-right: 0.5rem;
 	font-size: 3rem;
