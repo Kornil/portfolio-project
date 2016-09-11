@@ -35,8 +35,10 @@ const statsText = [
 }];
 
 var Stats = React.createClass({
-	componentDidMount () {
-		$(".middle button").hover(console.log("a"))
+	componentDidUpdate () {
+		$(".middle button").hover(function){
+			console.log("a")
+		}
 	},
 	render () {
 		let n = this.props.test;
