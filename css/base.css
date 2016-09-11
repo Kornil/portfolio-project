@@ -81,6 +81,13 @@ button:hover, button:focus{
 	height: 100%;
 	display: table;
 }
+#infoPanel{
+	width: 25vw;
+	min-height: 10vh;
+	position: absolute;
+	left: 50vw;
+	background: rgba(61,121,155,0.8);
+}
 .middle{
 	vertical-align: middle;
 	display: table-cell;

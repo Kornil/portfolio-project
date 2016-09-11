@@ -39,6 +39,7 @@ var Stats = React.createClass({
 		let n = this.props.test;
 		return (
 			<Col xs={8} md={3} id="stats">
+				<div id="infoPanel"></div>
       	<span id="statsContainer" dangerouslySetInnerHTML={{__html: statsText[n].text}} />
       </Col>
 			)
