@@ -36,9 +36,9 @@ const statsText = [
 
 var Stats = React.createClass({
 	componentDidUpdate () {
-		$(".middle button").hover(function){
+		$(".middle button").hover(function(){
 			console.log("a")
-		}
+		})
 	},
 	render () {
 		let n = this.props.test;
