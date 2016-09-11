@@ -81,6 +81,6 @@ ReactDOM.render(
   document.getElementById('wrapper')
 );
 
-$("#stats button").hover(()=>{
+$("#middle button").hover(function(){
 	console.log($(this).attr('id'));
 })
