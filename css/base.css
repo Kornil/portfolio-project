@@ -81,7 +81,7 @@ button:hover, button:focus{
 	height: 100%;
 	display: table;
 }
-#middle{
+.middle{
 	vertical-align: middle;
 	display: table-cell;
 }
