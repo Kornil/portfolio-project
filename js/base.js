@@ -43,7 +43,7 @@ var Stats = React.createClass({
 			});
 			let h = $("#stats").attr("height")
 			$("#infoPanel").show();
-			$("#infoPanel").css("top",""+mouseX-(h/10)+"px")
+			$("#infoPanel").css("top",""+mouseY-(h/10)+"px")
 		},function(){
 			$("#infoPanel").hide();
 		})
