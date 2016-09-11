@@ -41,9 +41,9 @@ var Stats = React.createClass({
 			$(document).mousemove(function(e){
 				mouseY = e.pageY;
 			});
-			let h = $("#stats").attr("height")
+			let h = $("#stats").attr("height")			
+			$("#infoPanel").css("top","'"+mouseY-(h/10)+"px'")
 			$("#infoPanel").show();
-			$("#infoPanel").css("top",""+mouseY-(h/10)+"px")
 		},function(){
 			$("#infoPanel").hide();
 		})
