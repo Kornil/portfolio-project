@@ -89,6 +89,7 @@ button:hover, button:focus{
 	left: -25vw;
 	top: 0;
 	background: rgba(61,121,155,0.8);
+	display: none;
 }
 .middle{
 	vertical-align: middle;
