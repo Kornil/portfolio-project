@@ -39,7 +39,7 @@ var Stats = React.createClass({
 		function getPos(e){
   		let y=e.clientY;
   		return y;
-		});
+		};
 		$(".middle button").hover(function(){
 			y = getPos(event);
 			console.log(y)
