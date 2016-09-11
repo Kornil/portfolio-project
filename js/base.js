@@ -82,7 +82,7 @@ ReactDOM.render(
 );
 
 $(document).ready(function(){
-	$("#middle button").hover(function(){
+	$(".middle button").hover(function(){
 		console.log($(this).attr('id'));
 	})
 });
