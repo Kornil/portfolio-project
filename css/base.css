@@ -77,6 +77,13 @@ button:hover, button:focus{
 	padding: 0 25px;
 	font-size: 13px;
 }
+#statsContainer{
+	height: 100%;
+	display: table;
+}
+#middle{
+	vertical-align: middle;
+}
 #imageDiv{
 	width: 125px;
 	height: 125px;

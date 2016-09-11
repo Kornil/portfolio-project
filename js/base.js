@@ -5,7 +5,10 @@ var Col = ReactBootstrap.Col;
 const statsText = [
 {
 	text: '<div id="imageDiv"><img id="circle" width="100%" height="100%" src="https://github.com/kornil.png" /></div><h3>About me</h3><p>Francesco Agnoletto, self-taught Front-end developer from Italy. I work with HTML, CSS and JavaScript to make beautiful, optimized and search engine friendly websites. You can find my latest works on the left.</p>',
-	test: ""
+	test: 0
+},{
+	text: "<p id='middle'><a href='avisrovigo.it'>www.avisrovigo.it</a></p>",
+	test: 1
 },{
 	title: "HTML5",
 	image: "",
@@ -36,7 +39,7 @@ var Stats = React.createClass({
 		let n = this.props.test;
 		return (
 			<Col xs={12} md={3} id="stats">
-      	<span dangerouslySetInnerHTML={{__html: statsText[n].text}} />
+      	<span id="statsContainer" dangerouslySetInnerHTML={{__html: statsText[n].text}} />
       </Col>
 			)
 	}
@@ -56,7 +59,7 @@ var FinalRender = React.createClass({
 		      <Col xs={12} md={9} id="bg">
 		      	<h1>Francesco Agnoletto</h1>
 		      	<div id="links">
-		      		<button><h3>JOBS</h3></button><br />
+		      		<button onMouseOver={this.handleHover(1)}><h3>JOBS</h3></button><br />
 		      		<button><h3>GAMES</h3></button><br />
 		      		<button><h3>PROJECTS</h3></button>
 		      	</div>
