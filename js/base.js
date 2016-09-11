@@ -44,7 +44,7 @@ var Stats = React.createClass({
 			let y = getPos(event);
 			console.log(y)
 			let h = $("#stats").attr("height")			
-			$("#infoPanel").css("top","'"+y-(h/10)+"px'")
+			$("#infoPanel").css("top", y-(h/10)+"px")
 			$("#infoPanel").show();
 		},function(){
 			$("#infoPanel").hide();
