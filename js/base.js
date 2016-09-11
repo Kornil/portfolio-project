@@ -2,10 +2,6 @@ var Grid = ReactBootstrap.Grid;
 var Row = ReactBootstrap.Row;
 var Col = ReactBootstrap.Col;
 
-$("#stats button").hover(()=>{
-	console.log($(this).attr('id'));
-})
-
 const statsText = [
 {
 	text: '<div id="imageDiv"><img id="circle" width="100%" height="100%" src="https://github.com/kornil.png" /></div><h3>About me</h3><p>Francesco Agnoletto, self-taught Front-end developer from Italy. I work with HTML, CSS and JavaScript to make beautiful, optimized and search engine friendly websites. You can find my latest works on the left.</p>',
@@ -84,3 +80,7 @@ ReactDOM.render(
   <FinalRender />,
   document.getElementById('wrapper')
 );
+
+$("#stats button").hover(()=>{
+	console.log($(this).attr('id'));
+})
