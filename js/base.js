@@ -7,7 +7,7 @@ const statsText = [
 	text: '<div id="imageDiv"><img id="circle" width="100%" height="100%" src="https://github.com/kornil.png" /></div><h3>About me</h3><p>Francesco Agnoletto, self-taught Front-end developer from Italy. I work with HTML, CSS and JavaScript to make beautiful, optimized and search engine friendly websites. You can find my latest works on the left.</p>',
 	test: 0
 },{
-	text: "<p id='middle'><a href='avisrovigo.it'>www.avisrovigo.it</a></p>",
+	text: "<button href='avisrovigo.it'><p id='middle'>www.avisrovigo.it</p></button>",
 	test: 1
 },{
 	title: "HTML5",

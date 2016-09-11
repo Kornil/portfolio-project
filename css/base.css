@@ -14,10 +14,6 @@ html, body{
 	color: #fff;	
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-a:active a:hover a:link{
-	color: inherit;
-	text-decoration: none;
-}
 #wrapper, .row{
 	min-height: 100%;
 }
