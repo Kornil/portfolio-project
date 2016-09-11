@@ -85,7 +85,7 @@ button:hover, button:focus{
 	width: 25vw;
 	min-height: 10vh;
 	position: absolute;
-	left: 50vw;
+	left: -25vw;
 	top: 0;
 	background: rgba(61,121,155,0.8);
 }
