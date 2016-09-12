@@ -35,7 +35,8 @@ const statsText = [
 }],
 infoText = [{
 	title: "avis",
-	text: "Avis is the biggest italian blood donors organization, every city has an office to coordinate the local volunteers, this is the website for the city of Rovigo."}]
+	text: "Avis is the biggest italian blood donors organization, every city has an office to coordinate the local volunteers, this is the website for the city of Rovigo."},
+	image: "https://raw.githubusercontent.com/Kornil/sito-avis/gh-pages/images/AVIS-com-rovigo.png"]
 
 var Stats = React.createClass({
 	componentDidUpdate () {
@@ -50,7 +51,7 @@ var Stats = React.createClass({
 
 			let elementPos = infoText.map((x)=> x.title).indexOf($(this).attr("id")),
 				objectFound = infoText[elementPos];	
-
+			$("#infoPanel img").attr("src",objectFound.image)
 			$("#infoPanel h5").text(objectFound.text)
 			$("#infoPanel").show();
 		},function(){
@@ -61,7 +62,7 @@ var Stats = React.createClass({
 		let n = this.props.test;
 		return (
 			<Col xs={8} md={3} id="stats">
-				<div id="infoPanel"><h5></h5></div>
+				<div id="infoPanel"><img id="infoImg" /><h5></h5></div>
       	<span id="statsContainer" dangerouslySetInnerHTML={{__html: statsText[n].text}} />
       </Col>
 			)
