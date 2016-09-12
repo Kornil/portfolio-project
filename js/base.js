@@ -35,7 +35,7 @@ const statsText = [
 }],
 infoText = [{
 	title: "avis",
-	text: "Avis is the biggest italian blood donors organization, every city has an office to coordinate the local volunteers, this is the website for the one in Rovigo."}]
+	text: "Avis is the biggest italian blood donors organization, every city has an office to coordinate the local volunteers, this is the website for the city of Rovigo."}]
 
 var Stats = React.createClass({
 	componentDidUpdate () {
