@@ -7,7 +7,7 @@ const statsText = [
 	text: '<div id="imageDiv"><img id="circle" width="100%" height="100%" src="https://github.com/kornil.png" /></div><h3>About me</h3><p>Francesco Agnoletto, self-taught Front-end developer from Italy. I work with HTML, CSS and JavaScript to make beautiful, optimized and search engine friendly websites. You can find my latest works on the left.</p>',
 	test: 0
 },{
-	text: '<span class="middle"><button id="avis" href="avisrovigo.it"><h5>www.avisrovigo.it</h5></button></span>',
+	text: '<span class="middle"><button id="avis" href="http://avisrovigo.it/" ><h5>www.avisrovigo.it</h5></button></span>',
 	test: 1
 },{
 	title: "HTML5",
@@ -85,12 +85,12 @@ var FinalRender = React.createClass({
 		      	<h1 onMouseOver={this.handleHover.bind(this, 0)}>Francesco Agnoletto</h1>
 		      	<div id="links">
 		      		<button onMouseOver={this.handleHover.bind(this, 1)}><h3>JOBS</h3></button><br />
-		      		<button><h3>GAMES</h3></button><br />
-		      		<button><h3>PROJECTS</h3></button>
+		      		<button><h3>PROJECTS</h3></button><br />
+		      		<button><h3>CONTACTS</h3></button>
 		      	</div>
 		      	<div id="icons">
 		      		{statsText.map(function(object, i){
-				        return <i onMouseOver={this.handleHover.bind(this, i)} className={object.icon} key={i} height="45px" />;
+				        return <i onMouseOver={this.handleHover.bind(this, i)} className={object.icon} key={i} height="45px" />
 				    	}.bind(this))}
 		      	</div>
 		      </Col>
