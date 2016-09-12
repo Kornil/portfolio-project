@@ -35,8 +35,9 @@ const statsText = [
 }],
 infoText = [{
 	title: "avis",
-	text: "Avis is the biggest italian blood donors organization, every city has an office to coordinate the local volunteers, this is the website for the city of Rovigo."},
-	image: "https://raw.githubusercontent.com/Kornil/sito-avis/gh-pages/images/AVIS-com-rovigo.png"]
+	text: "Avis is the biggest italian blood donors organization, every city has an office to coordinate the local volunteers, this is the website for the city of Rovigo.",
+	image: "https://raw.githubusercontent.com/Kornil/sito-avis/gh-pages/images/AVIS-com-rovigo.png"
+	}]
 
 var Stats = React.createClass({
 	componentDidUpdate () {
