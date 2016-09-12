@@ -51,7 +51,7 @@ var Stats = React.createClass({
 			let elementPos = infoText.map((x)=> x.title).indexOf($(this).attr("id")),
 				objectFound = infoText[elementPos];	
 
-			$("#infoPanel p").text(objectFound.text)
+			$("#infoPanel h5").text(objectFound.text)
 			$("#infoPanel").show();
 		},function(){
 			$("#infoPanel").hide();
@@ -61,7 +61,7 @@ var Stats = React.createClass({
 		let n = this.props.test;
 		return (
 			<Col xs={8} md={3} id="stats">
-				<div id="infoPanel"><p></p></div>
+				<div id="infoPanel"><h5></h5></div>
       	<span id="statsContainer" dangerouslySetInnerHTML={{__html: statsText[n].text}} />
       </Col>
 			)
