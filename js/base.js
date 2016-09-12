@@ -45,6 +45,9 @@ var Stats = React.createClass({
   		let y=e.clientY;
   		return y;
 		};
+		$(".middle button").click(function(){			
+			window.open($(this).attr("href"), '_blank');
+		})
 		$(".middle button").hover(function(){
 			let y = getPos(event),
 				h = $("#infoPanel").height();
