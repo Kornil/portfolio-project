@@ -7,10 +7,10 @@ const statsText = [
 	text: '<div id="imageDiv"><img id="circle" width="100%" height="100%" src="https://github.com/kornil.png" /></div><h3>About me</h3><p>Francesco Agnoletto, self-taught Front-end developer from Italy. I work with HTML, CSS and JavaScript to make beautiful, optimized and search engine friendly websites. You can find my latest works on the left.</p>',
 	test: 0
 },{
-	text: '<span class="middle"><button id="avis" href="http://avisrovigo.it/" ><h5>www.avisrovigo.it</h5></button></span>',
+	text: '<span class="middle"><button id="avis" href="http://avisrovigo.it/" ><h4>www.avisrovigo.it</h4></button></span>',
 	test: 1
 },{
-	text: '<span class="middle"><button id="breakout" href="projects/breakout/breakout.html" ><h5>Breakout!</h5></button></span>',
+	text: '<span class="middle"><button id="breakout" href="projects/breakout/breakout.html" ><h4>Breakout!</h4></button></span>',
 	test: 2
 },{
 	title: "HTML5",
