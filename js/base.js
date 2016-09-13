@@ -10,6 +10,9 @@ const statsText = [
 	text: '<span class="middle"><button id="avis" href="http://avisrovigo.it/" ><h5>www.avisrovigo.it</h5></button></span>',
 	test: 1
 },{
+	text: '<span class="middle"><button id="breakout" href="games/breakout.html" ><h5>Breakout!</h5></button></span>',
+	test: 2
+},{
 	title: "HTML5",
 	image: "",
 	icon: "devicon-html5-plain",
@@ -88,7 +91,7 @@ var FinalRender = React.createClass({
 		      	<h1 onMouseOver={this.handleHover.bind(this, 0)}>Francesco Agnoletto</h1>
 		      	<div id="links">
 		      		<button onMouseOver={this.handleHover.bind(this, 1)}><h3>JOBS</h3></button><br />
-		      		<button><h3>PROJECTS</h3></button><br />
+		      		<button  onMouseOver={this.handleHover.bind(this, 2)}><h3>PROJECTS</h3></button><br />
 		      		<button><h3>CONTACTS</h3></button>
 		      	</div>
 		      	<div id="icons">
