@@ -40,6 +40,10 @@ infoText = [{
 	title: "avis",
 	text: "Avis is the biggest italian blood donors organization, every city has an office to coordinate the local volunteers, this is the website for the city of Rovigo.",
 	image: "https://raw.githubusercontent.com/Kornil/sito-avis/gh-pages/images/AVIS-com-rovigo.png"
+	},{
+		title: "breakout",
+		text: "My variation of the classic breakout game developed by Atari.<br>Use either the 'A' and 'D' keys for movement or the left and right arrow keys.",
+		image: "games/xino.jpg"
 	}]
 
 var Stats = React.createClass({
@@ -55,7 +59,7 @@ var Stats = React.createClass({
 			let y = getPos(event),
 				h = $("#infoPanel").height();
 			$("#infoPanel").css("top", y-(h/2)+"px")
-
+			// use id o statsText to get obj on infoText from title
 			let elementPos = infoText.map((x)=> x.title).indexOf($(this).attr("id")),
 				objectFound = infoText[elementPos];	
 			$("#infoPanel img").attr("src",objectFound.image)
