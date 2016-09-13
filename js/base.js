@@ -42,7 +42,7 @@ infoText = [{
 	image: "https://raw.githubusercontent.com/Kornil/sito-avis/gh-pages/images/AVIS-com-rovigo.png"
 	},{
 		title: "breakout",
-		text: "My variation of the classic breakout game developed by Atari.<br>Use either the 'A' and 'D' keys for movement or the left and right arrow keys.",
+		text: "My variation of the classic breakout game developed by Atari. Use either the 'A' and 'D' keys for movement or the left and right arrow keys.",
 		image: "games/xino.jpg"
 	}]
 
