@@ -10,7 +10,7 @@ const statsText = [
 	text: '<span class="middle"><button id="avis" href="http://avisrovigo.it/" ><h5>www.avisrovigo.it</h5></button></span>',
 	test: 1
 },{
-	text: '<span class="middle"><button id="breakout" href="games/breakout.html" ><h5>Breakout!</h5></button></span>',
+	text: '<span class="middle"><button id="breakout" href="projects/breakout/breakout.html" ><h5>Breakout!</h5></button></span>',
 	test: 2
 },{
 	title: "HTML5",
@@ -43,7 +43,7 @@ infoText = [{
 	},{
 		title: "breakout",
 		text: "My variation of the classic breakout game developed by Atari. Use either the 'A' and 'D' keys for movement or the left and right arrow keys.",
-		image: "games/xino.jpg"
+		image: "projects/breakout/xino.jpg"
 	}]
 
 var Stats = React.createClass({
@@ -92,11 +92,11 @@ var FinalRender = React.createClass({
     	<Grid>
 		    <Row className="show-grid">
 		      <Col xs={12} md={9} id="bg">
-		      	<h1 onMouseOver={this.handleHover.bind(this, 0)}>Francesco Agnoletto</h1>
+		      	<h1>Francesco Agnoletto</h1>
 		      	<div id="links">
 		      		<button onMouseOver={this.handleHover.bind(this, 1)}><h3>JOBS</h3></button><br />
-		      		<button  onMouseOver={this.handleHover.bind(this, 2)}><h3>PROJECTS</h3></button><br />
-		      		<button><h3>CONTACTS</h3></button>
+		      		<button onMouseOver={this.handleHover.bind(this, 2)}><h3>PROJECTS</h3></button><br />
+		      		<button onMouseOver={this.handleHover.bind(this, 0)}><h3>CONTACTS</h3></button>
 		      	</div>
 		      	<div id="icons">
 		      		{statsText.map(function(object, i){
