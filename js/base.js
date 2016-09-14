@@ -10,11 +10,8 @@ const statsText = [
 	text: '<span class="middle"><button id="avis" href="http://avisrovigo.it/" ><h4>www.avisrovigo.it</h4></button></span>',
 	test: 1
 },{
-	text: '<span class="middle"><button id="breakout" href="projects/breakout/breakout.html" ><h4>Breakout!</h4></button></span>',
+	text: '<span class="middle"><button id="breakout" href="projects/breakout/breakout.html" ><h4>Breakout!</h4></button></span><br><span class="middle"><button id="pong" href="projects/pong/pong.html" ><h4>Pong</h4></button></span>',
 	test: 2
-},{
-	text: '<span class="middle"><button id="pong" href="projects/pong/pong.html" ><h4>Pong</h4></button></span>',
-	test: 3
 },{
 	title: "HTML5",
 	image: "",
