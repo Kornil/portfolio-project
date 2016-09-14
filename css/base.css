@@ -50,6 +50,7 @@ html, body{
 button{
   background:none;
   border:none;
+  margin: 10px;
 }
 button:hover, button:focus{
   background:rgba(118,165,181,0.4);
@@ -81,7 +82,7 @@ button:hover, button:focus{
 #statsContainer{
 	height: 100%;
 	display: table;
-	padding: 100px 0;
+	padding: 20vh 0;
 }
 #infoPanel{
 	width: 25vw;
