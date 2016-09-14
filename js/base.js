@@ -13,6 +13,9 @@ const statsText = [
 	text: '<span class="middle"><button id="breakout" href="projects/breakout/breakout.html" ><h4>Breakout!</h4></button></span>',
 	test: 2
 },{
+	text: '<span class="middle"><button id="pong" href="projects/pong/pong.html" ><h4>Pong</h4></button></span>',
+	test: 3
+},{
 	title: "HTML5",
 	image: "",
 	icon: "devicon-html5-plain",
@@ -44,6 +47,10 @@ infoText = [{
 		title: "breakout",
 		text: "My variation of the classic breakout game developed by Atari. Use either the 'A' and 'D' keys for movement or the left and right arrow keys.",
 		image: "projects/breakout/xino.jpg"
+	},{
+		title: "pong",
+		text: "",
+		immage: ""
 	}]
 
 var Stats = React.createClass({
