@@ -81,6 +81,7 @@ button:hover, button:focus{
 #statsContainer{
 	height: 100%;
 	display: table;
+	padding: 100px 0;
 }
 #infoPanel{
 	width: 25vw;
@@ -94,10 +95,10 @@ button:hover, button:focus{
 	width: 80%;
 	margin: 1rem auto;
 }
-.middle{
+/*.middle{
 	vertical-align: middle;
 	display: table-cell;
-}
+}*/
 #imageDiv{
 	width: 125px;
 	height: 125px;

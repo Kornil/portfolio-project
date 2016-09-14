@@ -46,8 +46,8 @@ infoText = [{
 		image: "projects/breakout/xino.jpg"
 	},{
 		title: "pong",
-		text: "",
-		immage: ""
+		text: "The classic table-tennis arcade game by Atari, the graphics evoke the nostalgia feel while looking more modern, use 'W' and 'S' to move the paddle, arrow keys for the second paddle in multiplaye mode.",
+		image: "projects/pong/xino.jpg"
 	}]
 
 var Stats = React.createClass({
