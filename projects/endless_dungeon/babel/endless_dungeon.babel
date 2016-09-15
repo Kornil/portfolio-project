@@ -1,0 +1,785 @@
+/*
+awesome tutorial on cave system generation
+http://gamedevelopment.tutsplus.com/tutorials/create-a-procedurally-generated-dungeon-cave-system--gamedev-10099
+*/
+const gameWidth = 1500, gameHeight = 1000,
+      orcNames = ["Oggugat","Umug","Eggha","Vamugbu","Orakh","Sbghat","Xnaurl","Orakh","Sguk","Rurbag","Borug","Dabub","Aghed","Xago","Vorgak","Xothkug","Shulong","Varguk","Woggugat","Zonagh","Urug","Jughragh","Gurukk","Zinsbog","Xugug","Khadba","Gujjab","Clog","Nag","Xolkug"],
+      orcTitle1 = ["Killer","Prince","Emissary","Slayer","Commander","King","Inquisitor","Vanquisher","Enemy","Elder","Reaper","Overlord","Child","Shaman","Guard","Herald","Bringer","Master","Witch","Wearer","Fighter","Butcher","Raider","Champion","Stealer","Blade","Spear","Defender","Breaker","Servant","Soul","Acolyte"],
+      orcTitle2 = [" of Bones"," of Souls"," of Thunder"," of Storms"," of Ice"," of Fire"," of Death"," of Immortals"," of Eternity"," of Fools"," Apprentice"," of Fishes"," of Darkness", " of Stone"," of Nightmares"," of Silence"," of Stupidity"," of Mages", " of Kings"," of Horrors"," of Nothing"," of the Godless Ones"," of Dragons"," of Shadow"," of Pots"," of the Subterranean King"," of Worms"," of Toilets"," of Himself"],
+      bossNames = ["Iucxouxel","Ghruiggoh","Xaathrh'kri","Traggd'endelbh","Ghreldun","Ynagg'tho","Yangadr'kroxr","Vh'ygn'druxz","Ic'thaiogh'xuxz","Yivh'aathruxr"],
+      vikingNames=["Firnvim", "Saef", "Ghaenn", "Sgeplenn", "Threthnal", "Breteikr", "Ledlaek", "Tosskerd", "Yigdollunn", "Dhusgradvolf"],
+      giantNames=["Crengant","Gidmohr","Awgar","Aoddor","Basvag","Ukaros","Rugant","Zemgrog","Blagrus","Worsor"],
+      vampireNames=["Mathias","Athanasius","Demetrius","Lionel","Alexander","Francis","Zadimus","Maxius","Octavian","Julius"],
+      wizardNames=["Miomdotë","Keoléth","Eowel","Éwainde","Lóneör","Meömdóth","Neörer","Teöróth","Mólmóte","Sówire"],
+      heroDescs = [
+        ["Viking","100 HP","15 - 20 Attack","Berserk","+6 Max Attack"],
+        ["Giant","100 HP","15 - 20 Attack","Giant's Blood","+100 Max HP"],
+        ["Vampire","100 HP","15 - 20 Attack","Vampirism","10% Life Leech"],
+        ["Erudite","100 HP","15 - 20 Attack","Scholar","+50% Exp gain"]];
+
+let screenX = document.documentElement.clientWidth, 
+    screenY = Math.round(document.documentElement.clientHeight*0.6),
+    screenStats = Math.round(document.documentElement.clientHeight*0.35),
+    level = 1, weapon = 0, armor = 0, dungeonLvl = 1,
+    exitClick = false, mouseX;
+
+if(screenX > 600){
+  screenX = 600;
+}
+let screenX4 = screenX/4;
+
+var Game = React.createClass({
+  componentDidMount: function(){
+    $("img").hide();
+    this.update();
+  },
+  update: function(){
+    const ctx = this.refs.canvas.getContext('2d'),
+          ctx2 = this.refs.canvas2.getContext('2d'),
+          ctx3 = this.refs.canvas3.getContext('2d'),
+          ctx4 = this.refs.canvas4.getContext('2d'),
+          floorPatt=document.getElementById("floor-texture"),      
+          enemPatt=document.getElementById("enemy-texture"),
+          chestPatt=document.getElementById("chest-texture"),
+          bossPatt=document.getElementById("boss-texture"),
+          bossPatt1=document.getElementById("boss-texture1"),
+          bossPatt2=document.getElementById("boss-texture2"),
+          bossPatt3=document.getElementById("boss-texture3"),
+          bossPatt4=document.getElementById("boss-texture4"),
+          wallPatt=document.getElementById("wall-texture"),
+          pottPatt=document.getElementById("potion-texture"),
+          weapPatt=document.getElementById("weapon-texture"),
+          armPatt=document.getElementById("armor-texture"),
+          doorPatt=document.getElementById("door-texture"),
+          bossTexts = [bossPatt,bossPatt1,bossPatt2,bossPatt3,bossPatt4],
+          bossSize = 50, heroSize = 25, movementSpeed = 1.5,
+          maxChests = 50, maxEnemies = 200, maxRooms = 1000,
+          // last should be biggest
+          randomRoomValues = [100,125,150,175,200,225,250], 
+          min = randomRoomValues[randomRoomValues.length-1]+10;    
+    let playerPatt=document.getElementById("human-texture"), bossT,
+        Rooms = [], enemiesArray = [], hero = {}, chestsArray = [],
+        armorsArray= [], weaponsArray = [], potionsArray = [],
+        firstX, firstY, lastX, lastY, boss = {}, enemy = {}, rect = {},
+        enemyID, chestID, potionID, armorID, weaponID, playerName,
+        gameOver = false, sourceX, sourceY,
+        date = new Date(), oldTime = date.getTime(),
+        hpAlert, log1, log2, newLog, entries = [];
+    // get random element from array
+    function random(arr) {
+      return arr[Math.floor((Math.random()*arr.length))];
+    }    
+    // text for the fight log
+    function fightLog(){
+      if(entries.length >= 4){
+        entries.length = 4;
+      }
+      for(var i in entries){
+        ctx4.fillText(entries[i],10,180-(25*i))
+      }
+    }
+    // add treasures to dungeon random locations
+    function addChests(){
+      let chest = {};
+      for(var i = 0; i<maxChests;i++){
+        chest = {
+          x: Math.floor(Math.random() * (gameWidth - 0 + 1)) + 0,
+          y: Math.floor(Math.random() * (gameHeight - 0 + 1)) + 0,
+          w:15,
+          h:15
+        }
+        if(checkEnemy(chest)){
+          chestsArray.push(chest)
+        }
+      }
+    }
+    // check if hero touches enemy/chest/pots/ups * child of checkCollision
+    function enemyCollision(heromove){
+      function checkCollisionEasy(Obj){
+        if(heromove.x < Obj.x + Obj.w &&
+             heromove.x + heromove.w > Obj.x &&
+             heromove.y < Obj.y + Obj.h &&
+             heromove.h + heromove.y > Obj.y){
+          return true
+        }
+      }
+      for(var i in enemiesArray){
+        if(checkCollisionEasy(enemiesArray[i])){
+          enemyID = i;
+          return 1;
+        }
+      }
+      for(var i in chestsArray){
+        if(checkCollisionEasy(chestsArray[i])){
+          chestID = i;
+          return 2;
+        }
+      }
+      for(var i in potionsArray){
+        if(checkCollisionEasy(potionsArray[i])){
+          potionID = i;
+          return 4;
+        }
+      }
+      for(var i in armorsArray){
+        if(checkCollisionEasy(armorsArray[i])){
+          armorID = i;
+          return 5;
+        }
+      }
+      for(var i in weaponsArray){
+        if(checkCollisionEasy(weaponsArray[i])){
+          weaponID = i;
+          return 6;
+        }
+      }  
+      if(checkCollisionEasy(boss)){
+        enemyID = "BOSS";
+        return 3;
+      }
+      return false;
+    }
+    // combat if hero touches enemy * child of checkCollision
+    function fight(id){
+      let enemy;
+      if(id === "BOSS"){        
+        enemy = boss;
+        if(enemy.hp < 1){
+          entries.unshift("You reach Dungeon level "+(dungeonLvl+1)+"!");
+          newLevel();
+        }
+      }else{
+        enemy = enemiesArray[id];
+      }
+      if(enemy.hp > 0){
+        let heroAtk = Math.floor(Math.random()*(hero.maxAtk - hero.minAtk+1) + hero.minAtk),
+            enemyAtk = Math.floor(Math.random()*(enemy.maxAtk - enemy.minAtk+1) + enemy.minAtk) - hero.armor;
+        // attack and damage enemy
+        enemy.hp -= heroAtk;
+        if(hero.vamp === 0){
+          entries.unshift("You hit "+enemy.name+" for "+heroAtk+" damage.");
+        }else{
+          let vamp = Math.round(heroAtk*0.1);
+          if(hero.hp + vamp > hero.maxHP){vamp = 0}
+          hero.hp += vamp;
+          entries.unshift("You hit "+enemy.name+" for "+heroAtk+
+                          " damage and drain "+vamp+" HP back.");
+        }      
+        hero.hp -= enemyAtk;
+        entries.unshift(enemy.name+" hits you for "+enemyAtk+".");
+        if(enemy.hp < 1){
+          entries.unshift(enemy.name+" is dead.")
+          if(hero.exp < 100){
+            if(hero.moreExp === 0){
+            hero.exp += enemy.exp;
+            }else{hero.exp += enemy.exp*1.5}
+          }
+          if(hero.exp >= 100){
+            hero.exp -= 100;
+            level++; hero.maxHP += 20; hero.hp += 20;
+            if(level%2==0){
+              hero.maxAtk++;
+            }else{
+              hero.minAtk++;
+            }
+            entries.unshift("You reached level "+level+"!");
+          }        
+          if(id !== "BOSS"){
+            enemiesArray.splice(id,1)
+          }else{
+            entries.unshift("As "+enemy.name+" dies you find an hidden passage..")
+          }
+        }
+        if(hero.hp < 1){
+          entries.unshift(enemy.name+" killed you in Dungeon level "+dungeonLvl+".")
+          gameOver = true;
+        }
+      }
+    }
+    // open chest if hero touches it * child of checkCollision
+    function openChest(id){
+      let chest = chestsArray[id];
+      let luck = Math.floor(Math.random() * 20) + 1;
+      if(luck === 1){
+        weaponsArray.push(chestsArray[id]);
+      }else if(luck === 2){
+        armorsArray.push(chestsArray[id]);
+      }else if(luck <= 14){
+        potionsArray.push(chestsArray[id]);
+      }else{
+        entries.unshift("Chest was empty!")
+      }
+      chestsArray.splice(id,1);
+    }
+    // print textures to second canvas
+    function getTexture(elem,patt){
+      ctx2.drawImage(patt, elem.x, elem.y, elem.w, elem.h);
+    }
+    // check every cololision and adress the specific function
+    function checkCollision(direction){
+      let checkObject={};
+      switch(direction){
+        case "UP":
+          checkObject = {
+            x: hero.x,
+            y: hero.y-movementSpeed,
+            w: hero.w,
+            h:movementSpeed
+          }
+          break;
+        case "DOWN":
+          checkObject = {
+            x: hero.x,
+            y: hero.y+hero.h,
+            w: hero.w,
+            h:movementSpeed
+          }
+          break;
+        case "RIGHT":
+          checkObject = {
+            x: hero.x+hero.w,
+            y: hero.y,
+            w: movementSpeed,
+            h:hero.w+movementSpeed //it works better +mS dunno why
+          }
+          break;
+        case "LEFT":
+          checkObject = {
+            x: hero.x-movementSpeed,
+            y: hero.y,
+            w: movementSpeed,
+            h:hero.w+movementSpeed //it works better +mS dunno why
+          }
+          break;
+      }
+      /* check collision with walls */
+      var imageData = ctx.getImageData(checkObject.x, checkObject.y,
+                                       checkObject.w, checkObject.h);
+      var data = imageData.data;
+      for(var y = 0; y < checkObject.h; y++) {
+        // loop through each column
+        for(var x = 0; x < checkObject.w; x++) {
+          if(data[((checkObject.w * y) + x) * 4] === 51 &&
+            data[((checkObject.w * y) + x) * 4 + 1] === 51 &&
+            data[((checkObject.w * y) + x) * 4 + 2] === 51){
+            return false;
+          }
+        }
+      }
+      /* fight with enemy */
+      // once every 0.5 sec to avoid shitstorm
+      if(enemyCollision(checkObject) == 1 ||
+        enemyCollision(checkObject) == 3){
+        let d = new Date(), n = d.getTime();
+        if(n > oldTime + 500){
+          fight(enemyID);
+          oldTime = n;
+        }
+        return false;
+      }else if(enemyCollision(checkObject) == 2){
+        /* chest */        
+        // once every 0.5 sec to avoid shitstorm
+        let d = new Date(), n = d.getTime();
+        if(n > oldTime + 500){
+          openChest(chestID);
+          oldTime = n;
+        }
+        return false;
+      }else if(enemyCollision(checkObject) == 4){
+        /* potion */
+        // once every 0.5 sec to avoid shitstorm
+        let d = new Date(), n = d.getTime();
+        if(n > oldTime + 500){
+          //armor++; hero.armor++;
+          if(hero.maxHP >= hero.hp + 60){
+            entries.unshift("Health potion heals you for 60 hp!")
+            hero.hp += 60;
+          }else{
+            let healthRestored = hero.maxHP - hero.hp;
+            entries.unshift("Health potion heals you for "+healthRestored+" hp!")
+            hero.hp += healthRestored;
+          }
+          potionsArray.splice(potionID,1);
+          oldTime = n;
+        }
+        return false;
+        
+      }else if(enemyCollision(checkObject) == 5){
+        /* armor */        
+        // once every 0.5 sec to avoid shitstorm
+        let d = new Date(), n = d.getTime();
+        if(n > oldTime + 500){
+          armor++; hero.armor++;
+          entries.unshift("You found a new piece of armor! Your armor rating rises!")
+          armorsArray.splice(armorID,1);
+          oldTime = n;
+        }
+        return false;
+      }else if(enemyCollision(checkObject) == 6){
+        /* weapon */        
+        // once every 0.5 sec to avoid shitstorm
+        let d = new Date(), n = d.getTime();
+        if(n > oldTime + 500){
+          weapon += 2; hero.minAtk += 2; hero.maxAtk += 2;
+          entries.unshift("You found a new weapon! Your damage increases!")
+          weaponsArray.splice(weaponID,1);
+          oldTime = n;
+        }
+        return false;
+      }
+      return true;
+    }
+    // create a rectangle with rand dim and rand location 
+    function createRect(){      
+      let h = random(randomRoomValues),
+          w = random(randomRoomValues),
+          y = Math.floor(Math.random() * ((gameHeight-min) - 25 + 1) + 25),
+          x = Math.floor(Math.random() * ((gameWidth-min) - 25 + 1) + 25),
+          centerY = y + (h/2),
+          centerX = x + (w/2);
+      return rect = {
+        x: x,
+        y: y,
+        w: w,
+        h: h,
+        centerX: centerX,
+        centerY: centerY
+      }
+    }
+    // check if the rectangle clash with another rect (room)
+    function intersect(newRect,rect){
+      return !( rect.x-5 > newRect.x + newRect.w || rect.x+rect.w+5 <  newRect.x || 
+              rect.y-5 > newRect.y + newRect.h || rect.y+rect.h+5 <  newRect.y);
+    }
+    // checks the whole array for collisions between rooms
+    function checkAll(newroom){
+      for(var i in Rooms){
+        if(intersect(newroom,Rooms[i])){
+          return false;
+        }
+      }return true;
+    }
+    // check if enemy is in valid position, also check chests
+    function checkEnemy(enemy){
+      let last = Rooms.length-1;
+      for(var i in Rooms){
+        if(enemy.x >= Rooms[i].x && enemy.x+enemy.w <= Rooms[i].x+Rooms[i].w &&
+          enemy.y >= Rooms[i].y && enemy.y+enemy.h <= Rooms[i].y+Rooms[i].h &&
+           // no enemies on the first room!
+          (enemy.x > Rooms[0].x + Rooms[0].w || enemy.x+enemy.w < Rooms[0].x ||
+          enemy.y > Rooms[0].y + Rooms[0].h || enemy.y+enemy.h < Rooms[0].y) &&
+          // no enemies on the boss room (to avoid horde)
+          (enemy.x > Rooms[last].x + Rooms[last].w || enemy.x+enemy.w < Rooms[last].x ||
+          enemy.y > Rooms[last].y + Rooms[last].h || enemy.y+enemy.h < Rooms[last].y)){
+          return true;
+        }
+      }
+    }
+    // add enemies to dungeon, random location
+    function addEnemies(){
+      for(var i = 0; i<maxEnemies;i++){
+        let name = random(orcNames)+", "+random(orcTitle1)+random(orcTitle2);
+        enemy = {
+          x: Math.floor(Math.random() * (gameWidth - 0 + 1)) + 0,
+          y: Math.floor(Math.random() * (gameHeight - 0 + 1)) + 0,
+          w: heroSize,
+          h: heroSize,
+          hp: 40+(10*dungeonLvl),
+          minAtk: 7+(dungeonLvl*2),
+          maxAtk: 11+(dungeonLvl*2),
+          name: name,
+          exp: 10
+        }
+        if(checkEnemy(enemy)){
+          enemiesArray.push(enemy)
+        }
+      }
+    }
+    // hero constructor
+    function playerHero(x,y){
+      hero = {
+        x: x, y: y,
+        w: heroSize, h: heroSize,
+        maxHP: 80+(level*20),
+        hp: 80+(level*20),
+        armor: 0+armor,
+        minAtk: 15+weapon,
+        maxAtk: 20+weapon,
+        exp: 0,
+        vamp: 0,
+        moreExp: 0,
+        name: "Frodo"
+      }
+      return hero;
+    }
+    // change hero according to class
+    function selectClass(x){      
+      if(x <= screenX4){
+        // VIKING
+        hero.name = random(vikingNames)+" the Berserk";
+        hero.maxAtk += 6;
+        playerPatt=document.getElementById("human-texture")
+      }else if(x <= screenX4*2){
+        // GIANT
+        hero.name = random(giantNames)+" Towering Giant";
+        hero.maxHP += 100; hero.hp = hero.maxHP;
+        playerPatt=document.getElementById("giant-texture")
+      }else if(x <= screenX4*3){
+        // VAMPIRE
+        hero.name = random(vampireNames)+" Elder Vampire";
+        hero.vamp = 1;
+        playerPatt=document.getElementById("vampire-texture")
+      }else{
+        // WIZARD
+        hero.name = random(wizardNames)+" the Randir";
+        hero.moreExp = 1;
+        playerPatt=document.getElementById("wizard-texture")
+      }
+    }
+    // put checked rooms in array to get them drawn && corridors + player
+    function roomsArray(){
+      for(var k=0;k<maxRooms;k++){
+        var newroom = createRect();
+        if(checkAll(newroom)){
+          if(Rooms.length === 0){
+            firstX = newroom.centerX -heroSize/2;
+            firstY = newroom.centerY -heroSize/2;
+            if(dungeonLvl === 1){
+              playerHero(firstX,firstY);
+            }else{
+              hero.x = firstX; hero.y = firstY;
+            }
+          }
+          if((Rooms.length-1) >= 0){
+            let lastRoom = Rooms[Rooms.length-1],
+          /* corridors */
+              starterRoom,
+              finishRoom;
+          /* corridor horizontal */
+            if(lastRoom.centerX < newroom.centerX){
+              starterRoom = lastRoom;
+              finishRoom = newroom;
+            }else{
+              starterRoom = newroom;
+              finishRoom = lastRoom;
+            }
+            let corridorW = finishRoom.centerX - starterRoom.centerX;
+            var corridorX = {
+                x: starterRoom.centerX,
+                y: starterRoom.centerY-20,
+                w: corridorW,
+                h: 40
+              }
+            if(corridorX.y > finishRoom.y){
+              var corridorYh = -(corridorX.y - finishRoom.y),
+                  corridorYstart = corridorX.y + 40;
+            }else{
+              var corridorYh = finishRoom.y - corridorX.y,
+                  corridorYstart = corridorX.y;
+            }
+            var corridorY = {
+              x: corridorX.x + corridorX.w - 20,
+              y: corridorYstart,
+              w: 40,
+              h: corridorYh
+            }
+            Rooms.push(corridorX,corridorY);
+          }          
+          Rooms.push(newroom);          
+        }
+      }
+    }
+    // new level on boss kill
+    function newLevel(){
+      dungeonLvl++;
+      ctx.clearRect(0,0,gameWidth,gameHeight);
+      ctx2.clearRect(0,0,gameWidth,gameHeight);
+      Rooms=[];enemiesArray=[];chestsArray=[];
+      armorsArray= []; weaponsArray = []; potionsArray = [];
+      roomsArray();
+      addEnemies();
+      addChests();
+      drawStatic();
+      addBoss();
+    }
+    // walls and rooms on first canvas(only once), no need textures/other
+    function drawStatic(){
+      ctx.fillStyle = "rgba(51,51,51,1)";
+      ctx.fillRect(0, 0, gameWidth, gameHeight);
+      for(var i=0;i<Rooms.length;i++){
+        // necessary in first canvas!
+        ctx.fillStyle = "rgba(136,136,136,1)";
+        ctx.fillRect(Rooms[i].x, Rooms[i].y, Rooms[i].w, Rooms[i].h);        
+      }
+    }
+    // draw boss
+    function addBoss(){
+      let lastR = Rooms[Rooms.length-1],
+          lastRX = lastR.centerX,
+          lastRY = lastR.centerY,
+          name = random(bossNames);
+          bossT = random(bossTexts)
+      boss = {
+        x: lastRX-(bossSize/2),
+        y: lastRY-(bossSize/2),
+        w: bossSize,
+        h: bossSize,
+        hp: 100+(20*dungeonLvl),
+        minAtk: 10+(dungeonLvl*2),
+        maxAtk: 14+(dungeonLvl*2),
+        name: name,
+        exp: 30
+      };
+    }
+    // run these function once to add rooms,enemies,chests and draw #1 canvas
+    roomsArray();
+    addEnemies();
+    addChests();
+    drawStatic();
+    addBoss();    
+    //keylistener for hero movement (WASD and ARROW KEYS)
+    function KeyListener() {
+      this.pressedKeys = [];
+      this.keydown = function(e) { this.pressedKeys[e.keyCode] = true };
+      this.keyup = function(e) { this.pressedKeys[e.keyCode] = false };
+      document.addEventListener("keydown", this.keydown.bind(this));
+      document.addEventListener("keyup", this.keyup.bind(this));
+    }
+    KeyListener.prototype.isPressed = function(key){
+      return this.pressedKeys[key] ? true : false;
+    };
+    KeyListener.prototype.addKeyPressListener = function(keyCode, callback){
+      document.addEventListener("keypress", function(e) {
+        if (e.keyCode == keyCode)
+          callback(e);
+      });
+    };   
+    var keys = new KeyListener();
+    
+    function drawAll(){
+      /** second canvas style **/
+      ctx2.clearRect(0,0,gameWidth,gameHeight)
+      const floor=ctx2.createPattern(floorPatt,"repeat"),        
+            wall=ctx2.createPattern(wallPatt,"repeat");
+      // wall texture
+      ctx2.fillStyle = wall;
+      ctx2.fillRect(0, 0, gameWidth, gameHeight);
+      // room texture
+      for(var i=0;i<Rooms.length;i++){
+        ctx2.fillStyle = floor;
+        ctx2.fillRect(Rooms[i].x, Rooms[i].y, Rooms[i].w, Rooms[i].h);
+      }
+      // chest texture
+      for(var i=0;i<chestsArray.length;i++){
+        getTexture(chestsArray[i],chestPatt);
+      }
+      // potion texture
+      for(var i=0;i<potionsArray.length;i++){        
+        getTexture(potionsArray[i],pottPatt);
+      }
+      // armor texture
+      for(var i=0;i<armorsArray.length;i++){        
+        getTexture(armorsArray[i],armPatt);
+      }
+      // weapon texture
+      for(var i=0;i<weaponsArray.length;i++){        
+        getTexture(weaponsArray[i],weapPatt);
+      }
+      // enemy texture
+      for(var i=0;i<enemiesArray.length;i++){
+        getTexture(enemiesArray[i],enemPatt);
+      }
+      // boss and player texture
+      if(boss.hp > 0){
+      getTexture(boss,bossT);
+      }else{
+        boss.h = 25; boss.w = 25;
+        getTexture(boss,doorPatt)
+      }
+      getTexture(hero,playerPatt);
+      
+      /** third canvas display **/
+      ctx3.clearRect(0,0,screenX,screenY);      
+      ctx3.fillStyle = "#000"
+      ctx3.fillRect(0, 0, screenX, screenY);  
+      ctx3.drawImage(ctx2.canvas,sourceX,sourceY,screenX,screenY,
+                     0,0,screenX,screenY);
+      // no more chrome error for webkit (deprecated)
+      if (typeof(ctx3.imageSmoothingEnabled) !== 'undefined') {
+        ctx3.imageSmoothingEnabled = false;
+      }else{
+        ctx3.webkitImageSmoothingEnabled = false;
+        ctx3.mozImageSmoothingEnabled = false;
+        ctx3.msImageSmoothingEnabled = false;
+      }
+      if(hero.hp < 1){
+        ctx3.fillStyle = "rgba(0,0,0,0.8)";
+        ctx3.fillRect(0,(screenY/2)-50,screenX,100);
+        ctx3.fillStyle = "#f00"; ctx3.font = "50px Caudex";
+        ctx3.textAlign = "center";
+        ctx3.fillText("YOU DIED",screenX/2,screenY/2);
+        ctx3.fillStyle = "rgba(255,255,255,0.8)"; ctx3.font = "18px Caudex";
+        ctx3.fillText("Click anywhere to start a new game.",
+                      screenX/2,(screenY/2)+30);
+      }
+      
+      /** fourth canvas, text **/
+      if(hero.hp<hero.maxHP*0.3){hpAlert="#f00"}
+      else if(hero.hp>hero.maxHP*0.6){hpAlert="#0f0"}
+      else{hpAlert="#ff0"}
+      
+      ctx4.clearRect(0,0,screenX,screenStats);
+      ctx4.font = "22px Caudex";
+      ctx4.fillStyle = "#fff"
+      ctx4.fillText(hero.name+" Lvl "+level,10,20);
+      ctx4.font = "14px Caudex";
+      ctx4.fillText("Hp: ",10,50);
+      ctx4.fillStyle = hpAlert;
+      ctx4.fillText(+hero.hp+" / "+hero.maxHP,45,50);
+      ctx4.fillStyle = "#fff";
+      ctx4.fillText("Attack:  "+hero.minAtk+" - "+hero.maxAtk,150,50);
+      ctx4.fillText("Armor:  "+hero.armor,150,75);
+      ctx4.fillText("Exp:  "+hero.exp+" %",10,75);
+      ctx4.font = "12px Caudex";
+      fightLog();
+    };    
+    function moveAll(){
+      if ((keys.isPressed(83) || keys.isPressed(40)) && checkCollision("DOWN")) {
+        hero.y += movementSpeed;
+      } else if ((keys.isPressed(87) || keys.isPressed(38)) && checkCollision("UP")) {
+        hero.y -= movementSpeed;
+      } if ((keys.isPressed(65) || keys.isPressed(37)) && checkCollision("LEFT")) {
+        hero.x -= movementSpeed;
+      } else if ((keys.isPressed(68) || keys.isPressed(39)) && checkCollision("RIGHT")) {
+        hero.x += movementSpeed;
+      }
+      sourceX = hero.x+(hero.w/2)-(screenX/2);
+      sourceY = hero.y+(hero.h/2)-(screenY/2);
+    };
+    
+    var myReq;
+    function GameOver(){
+      document.removeEventListener('click', gameOverClick, false);
+      level = 1; weapon = 0; armor = 0; dungeonLvl = 1;
+      ctx.clearRect(0,0,gameWidth,gameHeight);
+      ctx2.clearRect(0,0,gameWidth,gameHeight);
+      Rooms=[];enemiesArray=[];hero={};chestsArray=[];entries=[];
+      armorsArray= []; weaponsArray = []; potionsArray = [];
+      roomsArray();
+      addEnemies();
+      addChests();
+      drawStatic();
+      addBoss();
+      ctx3.fillStyle ="#000"; ctx3.fillRect(0,0,screenX,screenY);
+      ctx3.strokeStyle="#fff"; ctx3.rect(0,0,screenX,screenY);
+      ctx3.textAlign = "start";
+      for(var i=0;i<4;i++){
+        ctx3.rect(screenX4*i,0,screenX4,screenY); ctx3.stroke();
+        ctx3.fillStyle = "#fff"; ctx3.font = "20px Caudex";
+        ctx3.fillText(heroDescs[i][0],(screenX4*i)+10,(screenY/2)-40);
+        ctx3.font = "15px Caudex";
+        ctx3.fillText(heroDescs[i][1],(screenX4*i)+10,(screenY/2)-20);
+        ctx3.fillText(heroDescs[i][2],(screenX4*i)+10,(screenY/2)+0);
+        ctx3.fillStyle="#f00";
+        ctx3.fillText(heroDescs[i][3],(screenX4*i)+10,(screenY/2)+20);
+        ctx3.fillText(heroDescs[i][4],(screenX4*i)+10,(screenY/2)+40); 
+      }
+      let c3 = document.getElementById("c3");
+      c3.addEventListener("click",newGame);
+    }
+    
+    function getMousePos(canvas, evt) {
+      var rect = canvas.getBoundingClientRect();
+      return {
+        x: evt.clientX - rect.left,
+        y: evt.clientY - rect.top
+      };
+    }
+    function gameOverClick(){
+      window.cancelAnimationFrame(myReq);
+      gameOver = false;
+      GameOver();
+    };
+    function newGame(e){
+      let canvas = document.getElementById("c3")
+      var pos = getMousePos(canvas, e);
+      mouseX = pos.x;
+      /* we got mouse click X position TODO change class according to click */
+      selectClass(mouseX)      
+      window.cancelAnimationFrame(myReq);
+      myReq = requestAnimationFrame(loop);
+      exitClick=true;
+    }
+    
+    function loop(){      
+      if(exitClick){
+        document.getElementById("c3").removeEventListener('click', newGame, false);
+        exitClick = false;
+      }
+      if(gameOver){
+        document.addEventListener("click",gameOverClick);
+      }else{
+        moveAll();
+        drawAll();
+        myReq = requestAnimationFrame(loop);
+      }
+    }
+    
+    GameOver();
+  },
+  render: function(){
+    return (
+      <div id="game">
+        {/* first canvas for the game logic */}
+        <canvas id="c1" ref="canvas" width={gameWidth} height={gameHeight} />
+        {/* second canvas for the graphics */}
+        <canvas id="c2" ref="canvas2" width={gameWidth} height={gameHeight} />
+        {/* third canvas is what you see */}
+        <canvas id="c3" ref="canvas3" width={screenX} height={screenY} />
+        {/* fourth canvas, in-game stats */}
+        <canvas id="c4" ref="canvas4" width={screenX} height={screenStats} />
+        {/* textures */}
+        <div id="textures">
+          <img id="wall-texture"
+            src="http://pousse.rapiere.free.fr/tome/tiles/Silmar/tiles/wall12.gif" />
+          <img id="floor-texture"
+            src="http://pousse.rapiere.free.fr/tome/tiles/Silmar/tiles/floor12.gif" />
+          <img id="enemy-texture"
+            src="http://pousse.rapiere.free.fr/tome/tiles/Silmar/monsters/orc.gif" />
+          <img id="chest-texture"
+            src="http://pousse.rapiere.free.fr/tome/tiles/Silmar/terrain/crate.gif" />
+          <img id="human-texture"
+            src="http://pousse.rapiere.free.fr/tome/tiles/Silmar/player/superhero.gif" />          
+          <img id="potion-texture"
+            src="http://pousse.rapiere.free.fr/tome/tiles/Silmar/items/potion.gif"/>
+          <img id="armor-texture"
+            src="http://pousse.rapiere.free.fr/tome/tiles/Silmar/items/leatherArmor.gif"/>
+          <img id="weapon-texture"
+            src="http://pousse.rapiere.free.fr/tome/tiles/Silmar/items/shortSword.gif"/>
+          <img id="giant-texture"
+            src="http://pousse.rapiere.free.fr/tome/tiles/Silmar/player/barbarian.gif"/>
+          <img id="vampire-texture"
+            src="http://pousse.rapiere.free.fr/tome/tiles/Silmar/player/subvampire.gif"/>
+          <img id="wizard-texture"
+            src="http://pousse.rapiere.free.fr/tome/tiles/Silmar/player/battlemage.gif"/>
+          <img id="door-texture"
+            src="http://pousse.rapiere.free.fr/tome/tiles/Silmar/tiles/openSecretDoor12.gif"/>
+          {/* boss textures */}
+          <img id="boss-texture"
+            src="http://pousse.rapiere.free.fr/tome/tiles/Silmar/monsters/redDragon.gif" />
+          <img id="boss-texture1"
+            src="http://pousse.rapiere.free.fr/tome/tiles/Silmar/monsters/hydra.gif" />
+          <img id="boss-texture2"
+            src="http://pousse.rapiere.free.fr/tome/tiles/Silmar/monsters/earthElemental.gif" />
+          <img id="boss-texture3"
+            src="http://pousse.rapiere.free.fr/tome/tiles/Silmar/monsters/cyclops.gif" />
+          <img id="boss-texture4"
+            src="http://pousse.rapiere.free.fr/tome/tiles/Silmar/monsters/giantWorm.gif" />
+        </div>
+      </div>
+    )
+  }
+});
+
+ReactDOM.render(<Game />,
+  document.getElementById('app'));

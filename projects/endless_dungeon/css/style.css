@@ -1,0 +1,17 @@
+body, html {
+  background: #1d1f20;
+}
+
+canvas {
+  padding: 0;
+  margin: 2vh auto;
+  display: block;
+}
+
+#c1, #c2, #textures {
+  display: none;
+}
+
+#c4 {
+  margin: 0 auto;
+}
