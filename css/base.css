@@ -82,7 +82,12 @@ button:hover, button:focus{
 #statsContainer{
 	height: 100%;
 	display: table;
+}
+#buttons{	
 	padding: 20vh 0;
+	height: 100%;
+	width: 100%;
+	text-align: left;
 }
 #infoPanel{
 	width: 25vw;

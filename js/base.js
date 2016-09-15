@@ -9,7 +9,7 @@ const statsText = [{
 	text: '<span class="middle"><button id="avis" href="http://avisrovigo.it/" ><h4>www.avisrovigo.it</h4></button></span>',
 	test: 1
 },{
-	text: '<span class="middle"><button id="breakout" href="projects/breakout/breakout.html" ><h4>Breakout!</h4></button></span><br><span class="middle"><button id="pong" href="projects/pong/pong.html" ><h4>Pong</h4></button></span><br><span class="middle"><button id="endless_dungeon" href="projects/endless_dungeon/endless_dungeon.html" ><h4>Pong</h4></button></span>',
+	text: '<div id="buttons"><span class="middle"><button id="breakout" href="projects/breakout/breakout.html" ><h4>Breakout!</h4></button></span><br><span class="middle"><button id="pong" href="projects/pong/pong.html" ><h4>Pong</h4></button></span><br><span class="middle"><button id="endless_dungeon" href="projects/endless_dungeon/endless_dungeon.html" ><h4>Endless Dungeon</h4></button></span></div>',
 	test: 2
 },{
 	title: "HTML5",
