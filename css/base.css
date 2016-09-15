@@ -83,7 +83,7 @@ button:hover, button:focus{
 	height: 100%;
 	display: table;
 }
-#buttons{	
+.buttons{	
 	padding: 20vh 0;
 	height: 100%;
 	width: 100%;

@@ -6,10 +6,10 @@ const statsText = [{
 	text: '<div id="imageDiv"><img id="circle" width="100%" height="100%" src="https://github.com/kornil.png" /></div><h3>About me</h3><p>Francesco Agnoletto, self-taught Front-end developer from Italy. I work with HTML, CSS and JavaScript to make beautiful, optimized and search engine friendly websites. You can find my latest works on the left.</p>',
 	test: 0
 },{
-	text: '<span class="middle"><button id="avis" href="http://avisrovigo.it/" ><h4>www.avisrovigo.it</h4></button></span>',
+	text: '<div class="buttons"><span class="middle"><button id="avis" href="http://avisrovigo.it/" ><h4>www.avisrovigo.it</h4></button></span></div>',
 	test: 1
 },{
-	text: '<div id="buttons"><span class="middle"><button id="breakout" href="projects/breakout/breakout.html" ><h4>Breakout!</h4></button></span><br><span class="middle"><button id="pong" href="projects/pong/pong.html" ><h4>Pong</h4></button></span><br><span class="middle"><button id="endless_dungeon" href="projects/endless_dungeon/endless_dungeon.html" ><h4>Endless Dungeon</h4></button></span></div>',
+	text: '<div class="buttons"><span class="middle"><button id="breakout" href="projects/breakout/breakout.html" ><h4>Breakout!</h4></button></span><br><span class="middle"><button id="pong" href="projects/pong/pong.html" ><h4>Pong</h4></button></span><br><span class="middle"><button id="endless_dungeon" href="projects/endless_dungeon/endless_dungeon.html" ><h4>Endless Dungeon</h4></button></span></div>',
 	test: 2
 },{
 	title: "HTML5",
