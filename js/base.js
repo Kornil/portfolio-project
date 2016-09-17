@@ -49,8 +49,8 @@ infoText = [{
 		image: "projects/pong/xino.jpg"
 	},{
 		title: "endless_dungeon",
-		text: "",
-		image: ""
+		text: "Explore the orc caves as you search for treasures and endless waves of monsters! 4 Classes to chose from: Viking, Giant, Vampire and Erudite. WASD or arrow keys to navigate the dungeon",
+		image: "projects/endless_dungeon/xino.jpg"
 	}];
 
 var Stats = React.createClass({
