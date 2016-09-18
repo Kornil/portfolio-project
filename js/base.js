@@ -3,7 +3,7 @@ var Row = ReactBootstrap.Row;
 var Col = ReactBootstrap.Col;
 
 const statsText = [{
-	text: '<div id="imageDiv"><img id="circle" width="100%" height="100%" src="https://github.com/kornil.png" /></div><h3>About me</h3><p>Francesco Agnoletto, self-taught Front-end developer from Italy. I work with HTML, CSS and JavaScript to make beautiful, optimized and search engine friendly websites. You can find my latest works on the left.</p>',
+	text: '<div id="imageDiv"><img id="circle" width="100%" height="100%" src="https://github.com/kornil.png" /></div><h3>About me</h3><p>Francesco Agnoletto, self-taught Front-end developer from Italy. I work with HTML, CSS and JavaScript to make beautiful, optimized and search engine friendly websites. You can find my latest works on the left.</p><br><p> Get in touch or follow me at: <br><a href="http://twitter.com/fragno92" target="_blank"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a><a href="http://github.com/Kornil" target="_blank"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a><a href="http://codepen.io/Kornil" target="_blank"><i class="fa fa-codepen fa-2x" aria-hidden="true"></i></a></p>',
 	test: 0
 },{
 	text: '<div class="buttons"><span class="middle"><button id="avis" href="http://avisrovigo.it/" ><h4>www.avisrovigo.it</h4></button></span></div>',
