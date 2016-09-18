@@ -121,3 +121,6 @@ button:hover, button:focus{
 ::-webkit-scrollbar-thumb{
   background: #FF0000;
 }
+.fa{
+	color: #fff;
+}
