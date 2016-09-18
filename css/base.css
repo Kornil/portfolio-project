@@ -123,4 +123,8 @@ button:hover, button:focus{
 }
 .fa{
 	color: #fff;
+	margin: 0 5px;
+}
+.fa:hover{
+	opacity: 0.6;
 }
