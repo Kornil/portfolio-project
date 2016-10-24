@@ -1,24 +1,4 @@
-{[
-          {
-          	"country_name": "United States",
-          	"place": 1,
-          	"gold_count": 46,
-          	"silver_count": 37,
-          	"bronze_count": 38,
-		"total_count": 121
-          },
-	  {
-          	"country_name": "United Kingdom",
-          	"place": 2,
-          	"gold_count": 27,
-          	"silver_count": 23,
-          	"bronze_count": 17,
-		"total_count": 67
-          },
-	  {
-          	"country_name": "China",
-          	"place": 3,
-          	"gold_count": 26,
+{
 [{
   "country_name": "United States",
   "place": 1,
@@ -89,4 +69,4 @@
   "silver_count": 11,
   "bronze_count": 10,
   "total_count": 29
-}, ]};
+} ]};
